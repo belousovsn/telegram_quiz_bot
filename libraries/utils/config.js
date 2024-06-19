@@ -1,1 +1,0 @@
-const ignoredMessage = "ignore"
