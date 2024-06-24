@@ -1,6 +1,7 @@
 const bot = require('../../..');
 const { getQuestion, getCorrectAnswerText, getNextQuestion, getCorrectAnswerIndex } = require('../domain/quizService');
 const { recordAnswer, getUserAnswers, clearAnswers } = require('../domain/userService');
+const { questionTimer } = require('../../../libraries/utils/config')
 
 let currentQuestionNumber = 0;
 
@@ -23,16 +24,17 @@ const askQuestion = async (chatId, question, bot) => {
             inline_keyboard: [
               question.answers.map((answer, index) => ({
                 text: answer,
-                callback_data: index
+                callback_data: `${index}`
               }))
             ]
         }
     }
     bot.sendMessage(chatId, question.question_text, options);
     //Reveal the answer in a time period
-    let correctUsers = await evaluateAnswers(question);
-    const timeToAnswer = 5000;
+    
+    const timeToAnswer = questionTimer;
     setTimeout(() => {
+        let correctUsers = evaluateAnswers(question);
         console.log('correct Users after evaluate', correctUsers)
         revealAnswer(chatId, question, bot);
         announceQuestionWinners(chatId, bot, correctUsers)
@@ -48,12 +50,14 @@ const handleAnswerSelection = (callback_query, bot) => {
     const msg = callback_query.message;
     const userId = callback_query.from.id;
     const answer = callback_query.data;
+    //check answer
+    console.log('answer after click: ', answer)
     //recording answer
     recordAnswer(userId, answer);
-    bot.answerCallBackQuery(callback_query.id, {text: 'Answer recorded'});
+    bot.answerCallbackQuery(callback_query.id, {text: 'Answer recorded'});
 }
 
-const evaluateAnswers = async (question) => {
+const evaluateAnswers = (question) => {
     const correctUsers = [];
     const correctAnswer = getCorrectAnswerIndex(question);
     //debug
