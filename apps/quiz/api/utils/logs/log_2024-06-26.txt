@@ -1,0 +1,45 @@
+[2024-06-26T16:46:11.563Z] [Chat ID: 5757013475] User answers: {"5757013475":"2"}
+[2024-06-26T16:46:11.565Z] [Chat ID: 5757013475] User state: {"currentQuestionNumber":1,"activeUsers":{},"answeredUsers":{},"timeout":{"_idleTimeout":10000,"_idlePrev":null,"_idleNext":null,"_idleStart":5791,"_repeat":null,"_destroyed":false}}
+[2024-06-26T16:46:11.565Z] [Chat ID: 5757013475] Active users: [["5757013475","mrbrightside42"]]
+[2024-06-26T16:46:11.566Z] [Chat ID: 5757013475] Processing user 5757013475 with answer 2
+[2024-06-26T16:46:11.567Z] [Chat ID: 5757013475] Correct answer: 2 (number)
+[2024-06-26T16:46:11.567Z] [Chat ID: 5757013475] User answer: 2 (number)
+[2024-06-26T16:46:11.568Z] [Chat ID: 5757013475] User nickname: mrbrightside42
+[2024-06-26T16:46:11.568Z] [Chat ID: 5757013475] Correct users: ["mrbrightside42"]
+[2024-06-26T16:46:22.219Z] [Chat ID: 5757013475] User answers: {"5757013475":"1"}
+[2024-06-26T16:46:22.220Z] [Chat ID: 5757013475] User state: {"currentQuestionNumber":2,"activeUsers":{},"answeredUsers":{},"timeout":{"_idleTimeout":10000,"_idlePrev":null,"_idleNext":null,"_idleStart":16445,"_repeat":null,"_destroyed":false}}
+[2024-06-26T16:46:22.221Z] [Chat ID: 5757013475] Active users: [["5757013475","mrbrightside42"]]
+[2024-06-26T16:46:22.222Z] [Chat ID: 5757013475] Processing user 5757013475 with answer 1
+[2024-06-26T16:46:22.222Z] [Chat ID: 5757013475] Correct answer: 2 (number)
+[2024-06-26T16:46:22.223Z] [Chat ID: 5757013475] User answer: 1 (number)
+[2024-06-26T16:46:22.223Z] [Chat ID: 5757013475] Correct users: []
+[2024-06-26T16:46:32.668Z] [Chat ID: 5757013475] User answers: {"5757013475":"2"}
+[2024-06-26T16:46:32.669Z] [Chat ID: 5757013475] User state: {"currentQuestionNumber":3,"activeUsers":{},"answeredUsers":{},"timeout":{"_idleTimeout":10000,"_idlePrev":null,"_idleNext":null,"_idleStart":26891,"_repeat":null,"_destroyed":false}}
+[2024-06-26T16:46:32.670Z] [Chat ID: 5757013475] Active users: [["5757013475","mrbrightside42"]]
+[2024-06-26T16:46:32.670Z] [Chat ID: 5757013475] Processing user 5757013475 with answer 2
+[2024-06-26T16:46:32.671Z] [Chat ID: 5757013475] Correct answer: 1 (number)
+[2024-06-26T16:46:32.671Z] [Chat ID: 5757013475] User answer: 2 (number)
+[2024-06-26T16:46:32.672Z] [Chat ID: 5757013475] Correct users: []
+[2024-06-26T16:46:43.001Z] [Chat ID: 5757013475] User answers: {"5757013475":"2"}
+[2024-06-26T16:46:43.001Z] [Chat ID: 5757013475] User state: {"currentQuestionNumber":4,"activeUsers":{},"answeredUsers":{},"timeout":{"_idleTimeout":10000,"_idlePrev":null,"_idleNext":null,"_idleStart":37219,"_repeat":null,"_destroyed":false}}
+[2024-06-26T16:46:43.002Z] [Chat ID: 5757013475] Active users: [["5757013475","mrbrightside42"]]
+[2024-06-26T16:46:43.003Z] [Chat ID: 5757013475] Processing user 5757013475 with answer 2
+[2024-06-26T16:46:43.003Z] [Chat ID: 5757013475] Correct answer: 2 (number)
+[2024-06-26T16:46:43.003Z] [Chat ID: 5757013475] User answer: 2 (number)
+[2024-06-26T16:46:43.004Z] [Chat ID: 5757013475] User nickname: mrbrightside42
+[2024-06-26T16:46:43.004Z] [Chat ID: 5757013475] Correct users: ["mrbrightside42"]
+[2024-06-26T16:46:53.511Z] [Chat ID: 5757013475] User answers: {"5757013475":"3"}
+[2024-06-26T16:46:53.512Z] [Chat ID: 5757013475] User state: {"currentQuestionNumber":5,"activeUsers":{},"answeredUsers":{},"timeout":{"_idleTimeout":10000,"_idlePrev":null,"_idleNext":null,"_idleStart":47738,"_repeat":null,"_destroyed":false}}
+[2024-06-26T16:46:53.513Z] [Chat ID: 5757013475] Active users: [["5757013475","mrbrightside42"]]
+[2024-06-26T16:46:53.513Z] [Chat ID: 5757013475] Processing user 5757013475 with answer 3
+[2024-06-26T16:46:53.514Z] [Chat ID: 5757013475] Correct answer: 1 (number)
+[2024-06-26T16:46:53.514Z] [Chat ID: 5757013475] User answer: 3 (number)
+[2024-06-26T16:46:53.514Z] [Chat ID: 5757013475] Correct users: []
+[2024-06-26T16:47:03.870Z] [Chat ID: 5757013475] User answers: {}
+[2024-06-26T16:47:03.871Z] [Chat ID: 5757013475] User state: {"currentQuestionNumber":6,"activeUsers":{},"answeredUsers":{},"timeout":{"_idleTimeout":10000,"_idlePrev":null,"_idleNext":null,"_idleStart":58102,"_repeat":null,"_destroyed":false}}
+[2024-06-26T16:47:03.872Z] [Chat ID: 5757013475] Active users: [["5757013475","mrbrightside42"]]
+[2024-06-26T16:47:03.872Z] [Chat ID: 5757013475] Correct users: []
+[2024-06-26T16:47:14.250Z] [Chat ID: 5757013475] User answers: {}
+[2024-06-26T16:47:14.251Z] [Chat ID: 5757013475] User state: {"currentQuestionNumber":7,"activeUsers":{},"answeredUsers":{},"timeout":{"_idleTimeout":10000,"_idlePrev":null,"_idleNext":null,"_idleStart":68474,"_repeat":null,"_destroyed":false}}
+[2024-06-26T16:47:14.252Z] [Chat ID: 5757013475] Active users: [["5757013475","mrbrightside42"]]
+[2024-06-26T16:47:14.253Z] [Chat ID: 5757013475] Correct users: []

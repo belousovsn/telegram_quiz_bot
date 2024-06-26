@@ -1,0 +1,14 @@
+[2024-06-26T21:38:14.470Z] [START] Quiz started in chat -1001421478469
+[2024-06-26T21:38:14.472Z] [QUESTION_START] Starting question 1 in chat -1001421478469
+[2024-06-26T21:38:19.024Z] [ANSWER] User mrbrightside42 (5757013475) answered question 1
+[2024-06-26T21:38:20.149Z] [ANSWER] User olga_choosy (269367044) answered question 1
+[2024-06-26T21:38:25.294Z] [QUESTION_END] Ending question 1 in chat -1001421478469
+[2024-06-26T21:38:25.295Z] [QUESTION_RESULTS] Question 1 results:mrbrightside42: 1 pointsolga_choosy: 1 points
+[2024-06-26T21:38:25.296Z] [QUESTION_START] Starting question 2 in chat -1001421478469
+[2024-06-26T21:38:28.225Z] [ANSWER] User mrbrightside42 (5757013475) answered question 2
+[2024-06-26T21:38:29.497Z] [ANSWER] User olga_choosy (269367044) answered question 2
+[2024-06-26T21:38:39.398Z] [QUESTION_END] Ending question 2 in chat -1001421478469
+[2024-06-26T21:38:39.399Z] [QUESTION_RESULTS] Question 2 results:mrbrightside42: 1 pointsolga_choosy: 2 points
+[2024-06-26T21:38:39.400Z] [QUESTION_START] Starting question 3 in chat -1001421478469
+[2024-06-26T21:38:48.895Z] [ANSWER] User olga_choosy (269367044) answered question 3
+[2024-06-26T21:38:51.892Z] [ANSWER] User mrbrightside42 (5757013475) answered question 3

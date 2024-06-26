@@ -1,0 +1,200 @@
+[2024-06-26T16:52:54.184Z] [START] Quiz started in chat 5757013475
+[2024-06-26T16:52:54.187Z] [ROUND_START] Starting round 1 in chat 5757013475
+[2024-06-26T16:52:55.580Z] [ANSWER] User mrbrightside42 (5757013475) answered question 1
+[2024-06-26T16:53:04.710Z] [ROUND_END] Ending round 1 in chat 5757013475
+[2024-06-26T16:53:04.711Z] [ROUND_RESULTS] Round 1 results:
+mrbrightside42: 1 points
+
+[2024-06-26T16:53:04.712Z] [ROUND_START] Starting round 2 in chat 5757013475
+[2024-06-26T16:53:06.394Z] [ANSWER] User mrbrightside42 (5757013475) answered question 2
+[2024-06-26T16:53:15.300Z] [ROUND_END] Ending round 2 in chat 5757013475
+[2024-06-26T16:53:15.301Z] [ROUND_RESULTS] Round 2 results:
+mrbrightside42: 1 points
+
+[2024-06-26T16:53:15.302Z] [ROUND_START] Starting round 3 in chat 5757013475
+[2024-06-26T16:53:18.339Z] [STOP] Quiz stopped manually in chat 5757013475
+[2024-06-26T16:53:18.452Z] [END] Quiz ended in chat 5757013475. Quiz ended! Final scores:
+mrbrightside42: 1 points
+
+[2024-06-26T16:55:06.052Z] [START] Quiz started in chat 5757013475
+[2024-06-26T16:55:06.054Z] [QUESTION_START] Starting question 1 in chat 5757013475
+[2024-06-26T16:55:07.392Z] [ANSWER] User mrbrightside42 (5757013475) answered question 1
+[2024-06-26T16:55:16.521Z] [QUESTION_END] Ending question 1 in chat 5757013475
+[2024-06-26T16:55:16.522Z] [QUESTION_RESULTS] Question 1 results:
+mrbrightside42: 1 points
+
+[2024-06-26T16:55:16.523Z] [QUESTION_START] Starting question 2 in chat 5757013475
+[2024-06-26T16:55:18.700Z] [ANSWER] User mrbrightside42 (5757013475) answered question 2
+[2024-06-26T16:55:22.467Z] [STOP] Quiz stopped manually in chat 5757013475
+[2024-06-26T16:55:22.603Z] [END] Quiz ended in chat 5757013475. Quiz ended! Final scores:
+mrbrightside42: 1 points
+
+[2024-06-26T17:07:10.183Z] [START] Quiz started in chat 5757013475
+[2024-06-26T17:07:10.186Z] [QUESTION_START] Starting question 1 in chat 5757013475
+[2024-06-26T17:07:14.424Z] [ANSWER] User mrbrightside42 (5757013475) answered question 1
+[2024-06-26T17:07:20.601Z] [QUESTION_END] Ending question 1 in chat 5757013475
+[2024-06-26T17:07:20.602Z] [QUESTION_RESULTS] Question 1 results:
+mrbrightside42: 1 points
+
+[2024-06-26T17:07:20.603Z] [QUESTION_START] Starting question 2 in chat 5757013475
+[2024-06-26T17:07:25.152Z] [ANSWER] User mrbrightside42 (5757013475) answered question 2
+[2024-06-26T17:07:31.108Z] [QUESTION_END] Ending question 2 in chat 5757013475
+[2024-06-26T17:07:31.109Z] [QUESTION_RESULTS] Question 2 results:
+mrbrightside42: 2 points
+
+[2024-06-26T17:07:31.110Z] [QUESTION_START] Starting question 3 in chat 5757013475
+[2024-06-26T17:07:33.250Z] [STOP] Quiz stopped manually in chat 5757013475
+[2024-06-26T17:07:33.371Z] [END] Quiz ended in chat 5757013475. Quiz ended! Final scores:
+mrbrightside42: 2 points
+
+[2024-06-26T17:09:55.348Z] [START] Quiz started in chat 5757013475
+[2024-06-26T17:09:55.351Z] [QUESTION_START] Starting question 1 in chat 5757013475
+[2024-06-26T17:10:05.678Z] [QUESTION_END] Ending question 1 in chat 5757013475
+[2024-06-26T17:10:05.679Z] [QUESTION_RESULTS] Question 1 results:
+
+[2024-06-26T17:10:05.680Z] [QUESTION_START] Starting question 2 in chat 5757013475
+[2024-06-26T17:10:11.829Z] [STOP] Quiz stopped manually in chat 5757013475
+[2024-06-26T17:10:12.002Z] [END] Quiz ended in chat 5757013475. Quiz ended! Final scores:
+
+[2024-06-26T17:10:27.384Z] [START] Quiz started in chat 5757013475
+[2024-06-26T17:10:27.385Z] [QUESTION_START] Starting question 1 in chat 5757013475
+[2024-06-26T17:10:31.109Z] [STOP] Quiz stopped manually in chat 5757013475
+[2024-06-26T17:10:31.363Z] [END] Quiz ended in chat 5757013475. Quiz ended! Final scores:
+
+[2024-06-26T21:22:57.809Z] [START] Quiz started in chat 5757013475
+[2024-06-26T21:22:57.817Z] [QUESTION_START] Starting question 1 in chat 5757013475
+[2024-06-26T21:23:01.871Z] [ANSWER] User mrbrightside42 (5757013475) answered question 1
+[2024-06-26T21:23:08.239Z] [QUESTION_END] Ending question 1 in chat 5757013475
+[2024-06-26T21:23:08.240Z] [QUESTION_RESULTS] Question 1 results:mrbrightside42: 1 points
+[2024-06-26T21:23:08.241Z] [QUESTION_START] Starting question 2 in chat 5757013475
+[2024-06-26T21:23:11.760Z] [ANSWER] User mrbrightside42 (5757013475) answered question 2
+[2024-06-26T21:23:18.578Z] [QUESTION_END] Ending question 2 in chat 5757013475
+[2024-06-26T21:23:18.579Z] [QUESTION_RESULTS] Question 2 results:mrbrightside42: 2 points
+[2024-06-26T21:23:18.580Z] [QUESTION_START] Starting question 3 in chat 5757013475
+[2024-06-26T21:23:22.500Z] [ANSWER] User mrbrightside42 (5757013475) answered question 3
+[2024-06-26T21:23:28.939Z] [QUESTION_END] Ending question 3 in chat 5757013475
+[2024-06-26T21:23:28.940Z] [QUESTION_RESULTS] Question 3 results:mrbrightside42: 2 points
+[2024-06-26T21:23:28.941Z] [QUESTION_START] Starting question 4 in chat 5757013475
+[2024-06-26T21:23:32.433Z] [ANSWER] User mrbrightside42 (5757013475) answered question 4
+[2024-06-26T21:23:39.273Z] [QUESTION_END] Ending question 4 in chat 5757013475
+[2024-06-26T21:23:39.274Z] [QUESTION_RESULTS] Question 4 results:mrbrightside42: 2 points
+[2024-06-26T21:23:39.275Z] [QUESTION_START] Starting question 5 in chat 5757013475
+[2024-06-26T21:23:42.560Z] [ANSWER] User mrbrightside42 (5757013475) answered question 5
+[2024-06-26T21:23:49.607Z] [QUESTION_END] Ending question 5 in chat 5757013475
+[2024-06-26T21:23:49.608Z] [QUESTION_RESULTS] Question 5 results:mrbrightside42: 3 points
+[2024-06-26T21:23:49.608Z] [QUESTION_START] Starting question 6 in chat 5757013475
+[2024-06-26T21:23:53.509Z] [ANSWER] User mrbrightside42 (5757013475) answered question 6
+[2024-06-26T21:23:59.945Z] [QUESTION_END] Ending question 6 in chat 5757013475
+[2024-06-26T21:23:59.946Z] [QUESTION_RESULTS] Question 6 results:mrbrightside42: 4 points
+[2024-06-26T21:23:59.947Z] [QUESTION_START] Starting question 7 in chat 5757013475
+[2024-06-26T21:24:04.904Z] [ANSWER] User mrbrightside42 (5757013475) answered question 7
+[2024-06-26T21:24:10.280Z] [QUESTION_END] Ending question 7 in chat 5757013475
+[2024-06-26T21:24:10.281Z] [QUESTION_RESULTS] Question 7 results:mrbrightside42: 5 points
+[2024-06-26T21:24:10.656Z] [END] Quiz ended in chat 5757013475. Quiz ended! Final scores:mrbrightside42: 5 points
+[2024-06-26T21:26:27.019Z] [START] Quiz started in chat 5757013475
+[2024-06-26T21:26:27.021Z] [QUESTION_START] Starting question 1 in chat 5757013475
+[2024-06-26T21:26:37.393Z] [QUESTION_END] Ending question 1 in chat 5757013475
+[2024-06-26T21:26:37.394Z] [QUESTION_RESULTS] Question 1 results:
+[2024-06-26T21:26:37.394Z] [QUESTION_START] Starting question 2 in chat 5757013475
+[2024-06-26T21:26:47.781Z] [QUESTION_END] Ending question 2 in chat 5757013475
+[2024-06-26T21:26:47.782Z] [QUESTION_RESULTS] Question 2 results:
+[2024-06-26T21:26:47.783Z] [QUESTION_START] Starting question 3 in chat 5757013475
+[2024-06-26T21:26:58.131Z] [QUESTION_END] Ending question 3 in chat 5757013475
+[2024-06-26T21:26:58.132Z] [QUESTION_RESULTS] Question 3 results:
+[2024-06-26T21:26:58.133Z] [QUESTION_START] Starting question 4 in chat 5757013475
+[2024-06-26T21:27:08.491Z] [QUESTION_END] Ending question 4 in chat 5757013475
+[2024-06-26T21:27:08.492Z] [QUESTION_RESULTS] Question 4 results:
+[2024-06-26T21:27:08.493Z] [QUESTION_START] Starting question 5 in chat 5757013475
+[2024-06-26T21:27:18.885Z] [QUESTION_END] Ending question 5 in chat 5757013475
+[2024-06-26T21:27:18.886Z] [QUESTION_RESULTS] Question 5 results:
+[2024-06-26T21:27:18.887Z] [QUESTION_START] Starting question 6 in chat 5757013475
+[2024-06-26T21:27:29.282Z] [QUESTION_END] Ending question 6 in chat 5757013475
+[2024-06-26T21:27:29.283Z] [QUESTION_RESULTS] Question 6 results:
+[2024-06-26T21:27:29.283Z] [QUESTION_START] Starting question 7 in chat 5757013475
+[2024-06-26T21:27:39.696Z] [QUESTION_END] Ending question 7 in chat 5757013475
+[2024-06-26T21:27:39.697Z] [QUESTION_RESULTS] Question 7 results:
+[2024-06-26T21:27:39.856Z] [END] Quiz ended in chat 5757013475. Quiz ended! Final scores: 
+
+[2024-06-26T21:30:01.734Z] [START] Quiz started in chat 5757013475
+[2024-06-26T21:30:01.735Z] [QUESTION_START] Starting question 1 in chat 5757013475
+[2024-06-26T21:30:03.377Z] [ANSWER] User mrbrightside42 (5757013475) answered question 1
+[2024-06-26T21:30:12.040Z] [QUESTION_END] Ending question 1 in chat 5757013475
+[2024-06-26T21:30:12.041Z] [QUESTION_RESULTS] Question 1 results:mrbrightside42: 1 points
+[2024-06-26T21:30:12.042Z] [QUESTION_START] Starting question 2 in chat 5757013475
+[2024-06-26T21:30:22.371Z] [QUESTION_END] Ending question 2 in chat 5757013475
+[2024-06-26T21:30:22.372Z] [QUESTION_RESULTS] Question 2 results:mrbrightside42: 1 points
+[2024-06-26T21:30:22.373Z] [QUESTION_START] Starting question 3 in chat 5757013475
+[2024-06-26T21:30:32.741Z] [QUESTION_END] Ending question 3 in chat 5757013475
+[2024-06-26T21:30:32.743Z] [QUESTION_RESULTS] Question 3 results:mrbrightside42: 1 points
+[2024-06-26T21:30:32.744Z] [QUESTION_START] Starting question 4 in chat 5757013475
+[2024-06-26T21:30:43.159Z] [QUESTION_END] Ending question 4 in chat 5757013475
+[2024-06-26T21:30:43.160Z] [QUESTION_RESULTS] Question 4 results:mrbrightside42: 1 points
+[2024-06-26T21:30:43.161Z] [QUESTION_START] Starting question 5 in chat 5757013475
+[2024-06-26T21:30:53.531Z] [QUESTION_END] Ending question 5 in chat 5757013475
+[2024-06-26T21:30:53.533Z] [QUESTION_RESULTS] Question 5 results:mrbrightside42: 1 points
+[2024-06-26T21:30:53.534Z] [QUESTION_START] Starting question 6 in chat 5757013475
+[2024-06-26T21:31:03.859Z] [QUESTION_END] Ending question 6 in chat 5757013475
+[2024-06-26T21:31:03.861Z] [QUESTION_RESULTS] Question 6 results:mrbrightside42: 1 points
+[2024-06-26T21:31:03.862Z] [QUESTION_START] Starting question 7 in chat 5757013475
+[2024-06-26T21:31:14.205Z] [QUESTION_END] Ending question 7 in chat 5757013475
+[2024-06-26T21:31:14.207Z] [QUESTION_RESULTS] Question 7 results:mrbrightside42: 1 points
+[2024-06-26T21:31:14.472Z] [END] Quiz ended in chat 5757013475. Quiz ended! Final scores: 
+mrbrightside42: 1 points
+[2024-06-26T21:31:46.772Z] [START] Quiz started in chat 5757013475
+[2024-06-26T21:31:46.773Z] [QUESTION_START] Starting question 1 in chat 5757013475
+[2024-06-26T21:31:48.950Z] [ANSWER] User mrbrightside42 (5757013475) answered question 1
+[2024-06-26T21:31:57.296Z] [QUESTION_END] Ending question 1 in chat 5757013475
+[2024-06-26T21:31:57.297Z] [QUESTION_RESULTS] Question 1 results:mrbrightside42: 1 points
+[2024-06-26T21:31:57.297Z] [QUESTION_START] Starting question 2 in chat 5757013475
+[2024-06-26T21:32:00.607Z] [ANSWER] User mrbrightside42 (5757013475) answered question 2
+[2024-06-26T21:32:07.654Z] [QUESTION_END] Ending question 2 in chat 5757013475
+[2024-06-26T21:32:07.655Z] [QUESTION_RESULTS] Question 2 results:mrbrightside42: 2 points
+[2024-06-26T21:32:07.655Z] [QUESTION_START] Starting question 3 in chat 5757013475
+[2024-06-26T21:32:13.956Z] [ANSWER] User mrbrightside42 (5757013475) answered question 3
+[2024-06-26T21:32:18.015Z] [QUESTION_END] Ending question 3 in chat 5757013475
+[2024-06-26T21:32:18.016Z] [QUESTION_RESULTS] Question 3 results:mrbrightside42: 3 points
+[2024-06-26T21:32:18.016Z] [QUESTION_START] Starting question 4 in chat 5757013475
+[2024-06-26T21:32:20.039Z] [ANSWER] User mrbrightside42 (5757013475) answered question 4
+[2024-06-26T21:32:28.340Z] [QUESTION_END] Ending question 4 in chat 5757013475
+[2024-06-26T21:32:28.341Z] [QUESTION_RESULTS] Question 4 results:mrbrightside42: 4 points
+[2024-06-26T21:32:28.342Z] [QUESTION_START] Starting question 5 in chat 5757013475
+[2024-06-26T21:32:31.443Z] [ANSWER] User mrbrightside42 (5757013475) answered question 5
+[2024-06-26T21:32:38.711Z] [QUESTION_END] Ending question 5 in chat 5757013475
+[2024-06-26T21:32:38.712Z] [QUESTION_RESULTS] Question 5 results:mrbrightside42: 5 points
+[2024-06-26T21:32:38.713Z] [QUESTION_START] Starting question 6 in chat 5757013475
+[2024-06-26T21:32:41.567Z] [ANSWER] User mrbrightside42 (5757013475) answered question 6
+[2024-06-26T21:32:49.121Z] [QUESTION_END] Ending question 6 in chat 5757013475
+[2024-06-26T21:32:49.122Z] [QUESTION_RESULTS] Question 6 results:mrbrightside42: 6 points
+[2024-06-26T21:32:49.219Z] [END] Quiz ended in chat 5757013475. Quiz ended! Final scores: 
+mrbrightside42: 6 points
+[2024-06-26T21:50:11.389Z] [START] Quiz started in chat 5757013475
+[2024-06-26T21:50:11.398Z] [QUESTION_START] Starting question 1 in chat 5757013475
+[2024-06-26T21:50:15.089Z] [ANSWER] User mrbrightside42 (5757013475) answered question 1
+[2024-06-26T21:50:21.790Z] [QUESTION_END] Ending question 1 in chat 5757013475
+[2024-06-26T21:50:21.791Z] [QUESTION_RESULTS] Question 1 results:mrbrightside42: 1 points
+[2024-06-26T21:50:21.792Z] [QUESTION_START] Starting question 2 in chat 5757013475
+[2024-06-26T21:50:32.229Z] [QUESTION_END] Ending question 2 in chat 5757013475
+[2024-06-26T21:50:32.230Z] [QUESTION_RESULTS] Question 2 results:mrbrightside42: 1 points
+[2024-06-26T21:50:32.230Z] [QUESTION_START] Starting question 3 in chat 5757013475
+[2024-06-26T21:50:42.759Z] [QUESTION_END] Ending question 3 in chat 5757013475
+[2024-06-26T21:50:42.759Z] [QUESTION_RESULTS] Question 3 results:mrbrightside42: 1 points
+[2024-06-26T21:50:42.760Z] [QUESTION_START] Starting question 4 in chat 5757013475
+[2024-06-26T21:50:53.073Z] [QUESTION_END] Ending question 4 in chat 5757013475
+[2024-06-26T21:50:53.074Z] [QUESTION_RESULTS] Question 4 results:mrbrightside42: 1 points
+[2024-06-26T21:50:53.074Z] [QUESTION_START] Starting question 5 in chat 5757013475
+[2024-06-26T21:51:03.446Z] [QUESTION_END] Ending question 5 in chat 5757013475
+[2024-06-26T21:51:03.446Z] [QUESTION_RESULTS] Question 5 results:mrbrightside42: 1 points
+[2024-06-26T21:51:03.447Z] [QUESTION_START] Starting question 6 in chat 5757013475
+[2024-06-26T21:51:14.092Z] [QUESTION_END] Ending question 6 in chat 5757013475
+[2024-06-26T21:51:14.093Z] [QUESTION_RESULTS] Question 6 results:mrbrightside42: 1 points
+[2024-06-26T21:51:14.094Z] [QUESTION_START] Starting question 7 in chat 5757013475
+[2024-06-26T21:51:24.448Z] [QUESTION_END] Ending question 7 in chat 5757013475
+[2024-06-26T21:51:24.448Z] [QUESTION_RESULTS] Question 7 results:mrbrightside42: 1 points
+[2024-06-26T21:51:24.695Z] [END] Quiz ended in chat 5757013475. Quiz ended! Final scores: 
+mrbrightside42: 1 points
+[2024-06-26T22:06:02.694Z] [START] Quiz started in chat 5757013475
+[2024-06-26T22:06:02.697Z] [QUESTION_START] Starting question 1 in chat 5757013475
+[2024-06-26T22:06:06.000Z] [ANSWER] User mrbrightside42 (5757013475) answered question 1
+[2024-06-26T22:06:10.207Z] [STOP] Quiz stopped manually in chat 5757013475
+[2024-06-26T22:06:10.360Z] [END] Quiz ended in chat 5757013475. Quiz ended! Final scores: 
+mrbrightside42: 0 points

@@ -1,21 +1,41 @@
-let userAnswers = {};
+let chatAnswers = {};
+let userScores = {};
 
-const recordAnswer = (userId, answer) => {
-    userAnswers[userId] = answer;
-    //debug
-    console.log(userAnswers)
-}
+const recordAnswer = (chatId, userId, answer) => {
+    if (!chatAnswers[chatId]) {
+        chatAnswers[chatId] = {};
+    }
+    chatAnswers[chatId][userId] = answer;
+};
 
-const getUserAnswers = () => {
-    return userAnswers;
-}
+const getUserAnswers = (chatId) => {
+    return chatAnswers[chatId] || {};
+};
 
-const clearAnswers = () => {
-    userAnswers = [];
-}
+const clearAnswers = (chatId) => {
+    chatAnswers[chatId] = {};
+};
+
+const incrementUserScore = (userId) => {
+    if (!userScores[userId]) {
+        userScores[userId] = 0;
+    }
+    userScores[userId]++;
+};
+
+const getUserScore = (userId) => {
+    return userScores[userId] || 0;
+};
+
+const resetUserScores = () => {
+    userScores = {};
+};
 
 module.exports = {
     recordAnswer,
     getUserAnswers,
-    clearAnswers
+    clearAnswers,
+    incrementUserScore,
+    getUserScore,
+    resetUserScores
 };
