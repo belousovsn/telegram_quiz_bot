@@ -1,0 +1,29 @@
+{
+  "questions": [
+    {
+      "question_text": "What is the capital of France?",
+      "answers": ["London", "Berlin", "Paris", "Madrid"],
+      "correct_answer": 2
+    },
+    {
+      "question_text": "Which planet is known as the Red Planet?",
+      "answers": ["Jupiter", "Mars", "Venus", "Saturn"],
+      "correct_answer": 1
+    },
+    {
+      "question_text": "Who painted the Mona Lisa?",
+      "answers": ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"],
+      "correct_answer": 2
+    },
+    {
+      "question_text": "What is the largest ocean on Earth?",
+      "answers": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+      "correct_answer": 3
+    },
+    {
+      "question_text": "Which element has the chemical symbol 'O'?",
+      "answers": ["Gold", "Oxygen", "Silver", "Iron"],
+      "correct_answer": 1
+    }
+  ]
+}

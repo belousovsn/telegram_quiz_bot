@@ -1,0 +1,29 @@
+{
+  "questions": [
+    {
+      "question_text": "Which country is home to the kangaroo?",
+      "answers": ["New Zealand", "South Africa", "Australia", "Brazil"],
+      "correct_answer": 2
+    },
+    {
+      "question_text": "What is the largest planet in our solar system?",
+      "answers": ["Saturn", "Jupiter", "Neptune", "Uranus"],
+      "correct_answer": 1
+    },
+    {
+      "question_text": "Who wrote 'Romeo and Juliet'?",
+      "answers": ["Charles Dickens", "Jane Austen", "William Shakespeare", "Mark Twain"],
+      "correct_answer": 2
+    },
+    {
+      "question_text": "What is the chemical symbol for gold?",
+      "answers": ["Ag", "Au", "Fe", "Cu"],
+      "correct_answer": 1
+    },
+    {
+      "question_text": "Which of these is not a primary color?",
+      "answers": ["Red", "Blue", "Yellow", "Green"],
+      "correct_answer": 3
+    }
+  ]
+}

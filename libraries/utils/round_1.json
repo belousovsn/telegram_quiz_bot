@@ -1,0 +1,40 @@
+{
+    "questions": [
+      {
+        "question_text": "What is 2 + 3?",
+        "answers": ["2", "3", "5", "4"],
+        "correct_answer": 2
+      },
+      {
+        "question_text": "What is the capital of France?",
+        "answers": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correct_answer": 2
+      },
+      {
+        "question_text": "Who developed the theory of relativity?",
+        "answers": ["Isaac Newton", "Albert Einstein", "Galileo Galilei", "Nikola Tesla"],
+        "correct_answer": 1
+      },
+      {
+        "question_text": "What is the chemical symbol for water?",
+        "answers": ["O2", "CO2", "H2O", "NaCl"],
+        "correct_answer": 2
+      },
+      {
+        "question_text": "Which planet is known as the Red Planet?",
+        "answers": ["Earth", "Mars", "Jupiter", "Saturn"],
+        "correct_answer": 1
+      },
+      {
+        "question_text": "Who was the first President of the United States?",
+        "answers": ["Thomas Jefferson", "Abraham Lincoln", "George Washington", "John Adams"],
+        "correct_answer": 2
+      },
+      {
+        "question_text": "What is the largest organ in the human body?",
+        "answers": ["Heart", "Liver", "Skin", "Brain"],
+        "correct_answer": 2
+      }
+    ]
+}
+  
