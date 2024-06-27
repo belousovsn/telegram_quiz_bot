@@ -1,0 +1,47 @@
+[2024-06-28T12:16:38.012Z] [START] Quiz started in chat 269367044
+[2024-06-28T12:16:38.017Z] [QUESTION_START] Starting question 1 in chat 269367044
+[2024-06-28T12:16:41.076Z] [ANSWER] User olga_choosy (269367044) answered question 1
+[2024-06-28T12:16:53.564Z] [QUESTION_END] Ending question 1 in chat 269367044
+[2024-06-28T12:16:53.565Z] [QUESTION_RESULTS] Question 1 results:olga_choosy: 1 points
+[2024-06-28T12:16:56.581Z] [QUESTION_START] Starting question 2 in chat 269367044
+[2024-06-28T12:17:00.485Z] [ANSWER] User olga_choosy (269367044) answered question 2
+[2024-06-28T12:17:11.978Z] [QUESTION_END] Ending question 2 in chat 269367044
+[2024-06-28T12:17:11.979Z] [QUESTION_RESULTS] Question 2 results:olga_choosy: 2 points
+[2024-06-28T12:17:14.988Z] [QUESTION_START] Starting question 3 in chat 269367044
+[2024-06-28T12:17:19.312Z] [ANSWER] User olga_choosy (269367044) answered question 3
+[2024-06-28T12:17:30.390Z] [QUESTION_END] Ending question 3 in chat 269367044
+[2024-06-28T12:17:30.391Z] [QUESTION_RESULTS] Question 3 results:olga_choosy: 2 points
+[2024-06-28T12:17:33.406Z] [QUESTION_START] Starting question 4 in chat 269367044
+[2024-06-28T12:17:46.257Z] [ANSWER] User olga_choosy (269367044) answered question 4
+[2024-06-28T12:17:49.326Z] [QUESTION_END] Ending question 4 in chat 269367044
+[2024-06-28T12:17:49.327Z] [QUESTION_RESULTS] Question 4 results:olga_choosy: 3 points
+[2024-06-28T12:17:52.335Z] [QUESTION_START] Starting question 5 in chat 269367044
+[2024-06-28T12:17:58.642Z] [ANSWER] User olga_choosy (269367044) answered question 5
+[2024-06-28T12:18:07.782Z] [QUESTION_END] Ending question 5 in chat 269367044
+[2024-06-28T12:18:07.782Z] [QUESTION_RESULTS] Question 5 results:olga_choosy: 4 points
+[2024-06-28T12:18:10.894Z] [END] Quiz ended in chat 269367044. Quiz ended! Final scores: 
+olga_choosy: 4 points
+
+[2024-06-28T12:18:56.956Z] [START] Quiz started in chat 269367044
+[2024-06-28T12:18:56.958Z] [QUESTION_START] Starting question 1 in chat 269367044
+[2024-06-28T12:19:02.250Z] [ANSWER] User olga_choosy (269367044) answered question 1
+[2024-06-28T12:19:12.511Z] [QUESTION_END] Ending question 1 in chat 269367044
+[2024-06-28T12:19:12.512Z] [QUESTION_RESULTS] Question 1 results:olga_choosy: 0 points
+[2024-06-28T12:19:15.528Z] [QUESTION_START] Starting question 2 in chat 269367044
+[2024-06-28T12:19:21.401Z] [ANSWER] User olga_choosy (269367044) answered question 2
+[2024-06-28T12:19:30.960Z] [QUESTION_END] Ending question 2 in chat 269367044
+[2024-06-28T12:19:30.960Z] [QUESTION_RESULTS] Question 2 results:olga_choosy: 1 points
+[2024-06-28T12:19:33.971Z] [QUESTION_START] Starting question 3 in chat 269367044
+[2024-06-28T12:19:43.269Z] [ANSWER] User olga_choosy (269367044) answered question 3
+[2024-06-28T12:19:49.477Z] [QUESTION_END] Ending question 3 in chat 269367044
+[2024-06-28T12:19:49.478Z] [QUESTION_RESULTS] Question 3 results:olga_choosy: 2 points
+[2024-06-28T12:19:52.497Z] [QUESTION_START] Starting question 4 in chat 269367044
+[2024-06-28T12:20:07.975Z] [QUESTION_END] Ending question 4 in chat 269367044
+[2024-06-28T12:20:07.975Z] [QUESTION_RESULTS] Question 4 results:olga_choosy: 2 points
+[2024-06-28T12:20:10.981Z] [QUESTION_START] Starting question 5 in chat 269367044
+[2024-06-28T12:20:18.173Z] [ANSWER] User olga_choosy (269367044) answered question 5
+[2024-06-28T12:20:26.384Z] [QUESTION_END] Ending question 5 in chat 269367044
+[2024-06-28T12:20:26.385Z] [QUESTION_RESULTS] Question 5 results:olga_choosy: 2 points
+[2024-06-28T12:20:29.498Z] [END] Quiz ended in chat 269367044. Quiz ended! Final scores: 
+olga_choosy: 2 points
+

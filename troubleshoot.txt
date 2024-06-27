@@ -1,0 +1,856 @@
+Bot is running...
+Received callback query from chat 5757013475 with data: select_round
+Showing round selection menu for chat 5757013475
+Showing round selection menu for chat 5757013475
+Received callback query from chat 5757013475 with data: round_1
+Selecting round 1 for chat 5757013475
+Selecting round 1
+Attempting to load round 1
+Round 1 loaded. Total questions: 7
+Round 1 successfully selected and loaded.
+Showing main menu for chat 5757013475
+Received callback query from chat 5757013475 with data: start_round
+Current round: 1
+Current round for chat 5757013475: 1
+Starting quiz for chat 5757013475 with round 1
+Starting quiz for chat 5757013475
+GET USER STATE
+Map(0) {}
+Current round: 1
+Current round: 1
+Resetting quiz. Note: This does not clear the selected round.
+Selecting round 1
+Attempting to load round 1
+Round 1 loaded. Total questions: 7
+Round 1 successfully selected and loaded.
+SET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {}
+  }
+}
+User state set for chat 5757013475
+[2024-06-28T11:53:25.588Z] [START] Quiz started in chat 5757013475
+Getting total questions. Current count: 7
+Total questions in the round: 7
+Starting first question for chat 5757013475
+GET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {}
+  }
+}
+NEXT Q START
+GET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {}
+  }
+}
+initial q number in askNQ:  0
+userState:  {
+  currentQuestionNumber: 0,
+  activeUsers: Map(0) {},
+  answeredUsers: Set(0) {}
+}
+Getting total questions. Current count: 7
+Fetching question at index 0. Current round: 0, Total questions: 7
+[2024-06-28T11:53:25.593Z] [QUESTION_START] Starting question 1 in chat 5757013475
+ASK QUESTION START
+GET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {}
+  }
+}
+Getting total questions. Current count: 7
+SET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 1,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {}
+  }
+}
+currentQnumber value 0
+question number undefined
+NEXT Q END
+q number in askQuestion undefined
+SET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {},
+    timeout: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 5818,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 190,
+      [Symbol(triggerId)]: 0
+    },
+    timerInterval: Timeout {
+      _idleTimeout: 1000,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 5818,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 1000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 189,
+      [Symbol(triggerId)]: 0
+    },
+    questionMessageId: 1885,
+    startTime: 1719575605698,
+    currentQuestion: 'What is 2 + 3?',
+    currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+    counter: 0
+  }
+}
+ASK QUESTION END
+{
+  currentQuestionNumber: 0,
+  activeUsers: Map(0) {},
+  answeredUsers: Set(0) {}
+}
+UPDATETIMER
+GET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {},
+    timeout: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 5818,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 190,
+      [Symbol(triggerId)]: 0
+    },
+    timerInterval: Timeout {
+      _idleTimeout: 1000,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 5818,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 1000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 189,
+      [Symbol(triggerId)]: 0
+    },
+    questionMessageId: 1885,
+    startTime: 1719575605698,
+    currentQuestion: 'What is 2 + 3?',
+    currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+    counter: 0
+  }
+}
+UPDATETIMER
+GET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {},
+    timeout: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 5818,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 190,
+      [Symbol(triggerId)]: 0
+    },
+    timerInterval: Timeout {
+      _idleTimeout: 1000,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 6821,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 1000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 189,
+      [Symbol(triggerId)]: 0
+    },
+    questionMessageId: 1885,
+    startTime: 1719575605698,
+    currentQuestion: 'What is 2 + 3?',
+    currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+    counter: 0
+  }
+}
+UPDATETIMER
+GET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {},
+    timeout: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 5818,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 190,
+      [Symbol(triggerId)]: 0
+    },
+    timerInterval: Timeout {
+      _idleTimeout: 1000,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 7833,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 1000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 189,
+      [Symbol(triggerId)]: 0
+    },
+    questionMessageId: 1885,
+    startTime: 1719575605698,
+    currentQuestion: 'What is 2 + 3?',
+    currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+    counter: 0
+  }
+}
+UPDATETIMER
+GET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {},
+    timeout: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 5818,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 190,
+      [Symbol(triggerId)]: 0
+    },
+    timerInterval: Timeout {
+      _idleTimeout: 1000,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 8846,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 1000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 189,
+      [Symbol(triggerId)]: 0
+    },
+    questionMessageId: 1885,
+    startTime: 1719575605698,
+    currentQuestion: 'What is 2 + 3?',
+    currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+    counter: 0
+  }
+}
+EVALUATE START
+GET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {},
+    timeout: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 5818,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 190,
+      [Symbol(triggerId)]: 0
+    },
+    timerInterval: Timeout {
+      _idleTimeout: 1000,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 9860,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 1000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 189,
+      [Symbol(triggerId)]: 0
+    },
+    questionMessageId: 1885,
+    startTime: 1719575605698,
+    currentQuestion: 'What is 2 + 3?',
+    currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+    counter: 0
+  }
+}
+Getting total questions. Current count: 7
+UPDATETIMER
+GET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {},
+    timeout: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 5818,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 190,
+      [Symbol(triggerId)]: 0
+    },
+    timerInterval: Timeout {
+      _idleTimeout: 1000,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 9860,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 1000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 189,
+      [Symbol(triggerId)]: 0
+    },
+    questionMessageId: 1885,
+    startTime: 1719575605698,
+    currentQuestion: 'What is 2 + 3?',
+    currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+    counter: 0
+  }
+}
+REVEAL START
+GET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {},
+    timeout: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 5818,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: true,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 190,
+      [Symbol(triggerId)]: 0
+    },
+    timerInterval: Timeout {
+      _idleTimeout: -1,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 9860,
+      _onTimeout: null,
+      _timerArgs: undefined,
+      _repeat: 1000,
+      _destroyed: true,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 189,
+      [Symbol(triggerId)]: 0
+    },
+    questionMessageId: 1885,
+    startTime: 1719575605698,
+    currentQuestion: 'What is 2 + 3?',
+    currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+    counter: 0
+  }
+}
+REVEAL END
+[2024-06-28T11:53:31.093Z] [QUESTION_END] Ending question 0 in chat 5757013475
+[2024-06-28T11:53:31.094Z] [QUESTION_RESULTS] Question 0 results:
+EVALUATE END
+NEXT Q START
+GET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {},
+    timeout: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 5818,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: true,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 190,
+      [Symbol(triggerId)]: 0
+    },
+    timerInterval: Timeout {
+      _idleTimeout: -1,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 9860,
+      _onTimeout: null,
+      _timerArgs: undefined,
+      _repeat: 1000,
+      _destroyed: true,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 189,
+      [Symbol(triggerId)]: 0
+    },
+    questionMessageId: 1885,
+    startTime: 1719575605698,
+    currentQuestion: 'What is 2 + 3?',
+    currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+    counter: 0
+  }
+}
+initial q number in askNQ:  0
+userState:  {
+  currentQuestionNumber: 0,
+  activeUsers: Map(0) {},
+  answeredUsers: Set(0) {},
+  timeout: Timeout {
+    _idleTimeout: 5000,
+    _idlePrev: null,
+    _idleNext: null,
+    _idleStart: 5818,
+    _onTimeout: [Function (anonymous)],
+    _timerArgs: undefined,
+    _repeat: null,
+    _destroyed: true,
+    [Symbol(refed)]: true,
+    [Symbol(kHasPrimitive)]: false,
+    [Symbol(asyncId)]: 190,
+    [Symbol(triggerId)]: 0
+  },
+  timerInterval: Timeout {
+    _idleTimeout: -1,
+    _idlePrev: null,
+    _idleNext: null,
+    _idleStart: 9860,
+    _onTimeout: null,
+    _timerArgs: undefined,
+    _repeat: 1000,
+    _destroyed: true,
+    [Symbol(refed)]: true,
+    [Symbol(kHasPrimitive)]: false,
+    [Symbol(asyncId)]: 189,
+    [Symbol(triggerId)]: 0
+  },
+  questionMessageId: 1885,
+  startTime: 1719575605698,
+  currentQuestion: 'What is 2 + 3?',
+  currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+  counter: 0
+}
+Getting total questions. Current count: 7
+Fetching question at index 0. Current round: 0, Total questions: 7
+[2024-06-28T11:53:34.102Z] [QUESTION_START] Starting question 1 in chat 5757013475
+ASK QUESTION START
+GET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {},
+    timeout: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 5818,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: true,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 190,
+      [Symbol(triggerId)]: 0
+    },
+    timerInterval: Timeout {
+      _idleTimeout: -1,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 9860,
+      _onTimeout: null,
+      _timerArgs: undefined,
+      _repeat: 1000,
+      _destroyed: true,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 189,
+      [Symbol(triggerId)]: 0
+    },
+    questionMessageId: 1885,
+    startTime: 1719575605698,
+    currentQuestion: 'What is 2 + 3?',
+    currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+    counter: 0
+  }
+}
+Getting total questions. Current count: 7
+SET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 1,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {},
+    timeout: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 5818,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: true,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 190,
+      [Symbol(triggerId)]: 0
+    },
+    timerInterval: Timeout {
+      _idleTimeout: -1,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 9860,
+      _onTimeout: null,
+      _timerArgs: undefined,
+      _repeat: 1000,
+      _destroyed: true,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 189,
+      [Symbol(triggerId)]: 0
+    },
+    questionMessageId: 1885,
+    startTime: 1719575605698,
+    currentQuestion: 'What is 2 + 3?',
+    currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+    counter: 0
+  }
+}
+currentQnumber value 0
+question number undefined
+NEXT Q END
+q number in askQuestion undefined
+SET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {},
+    timeout: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 14333,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 353,
+      [Symbol(triggerId)]: 0
+    },
+    timerInterval: Timeout {
+      _idleTimeout: 1000,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 14333,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 1000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 352,
+      [Symbol(triggerId)]: 0
+    },
+    questionMessageId: 1888,
+    startTime: 1719575614213,
+    currentQuestion: 'What is 2 + 3?',
+    currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+    counter: 0
+  }
+}
+ASK QUESTION END
+{
+  currentQuestionNumber: 0,
+  activeUsers: Map(0) {},
+  answeredUsers: Set(0) {},
+  timeout: Timeout {
+    _idleTimeout: 5000,
+    _idlePrev: null,
+    _idleNext: null,
+    _idleStart: 5818,
+    _onTimeout: [Function (anonymous)],
+    _timerArgs: undefined,
+    _repeat: null,
+    _destroyed: true,
+    [Symbol(refed)]: true,
+    [Symbol(kHasPrimitive)]: false,
+    [Symbol(asyncId)]: 190,
+    [Symbol(triggerId)]: 0
+  },
+  timerInterval: Timeout {
+    _idleTimeout: -1,
+    _idlePrev: null,
+    _idleNext: null,
+    _idleStart: 9860,
+    _onTimeout: null,
+    _timerArgs: undefined,
+    _repeat: 1000,
+    _destroyed: true,
+    [Symbol(refed)]: true,
+    [Symbol(kHasPrimitive)]: false,
+    [Symbol(asyncId)]: 189,
+    [Symbol(triggerId)]: 0
+  },
+  questionMessageId: 1885,
+  startTime: 1719575605698,
+  currentQuestion: 'What is 2 + 3?',
+  currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+  counter: 0
+}
+UPDATETIMER
+GET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {},
+    timeout: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 14333,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 353,
+      [Symbol(triggerId)]: 0
+    },
+    timerInterval: Timeout {
+      _idleTimeout: 1000,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 14333,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 1000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 352,
+      [Symbol(triggerId)]: 0
+    },
+    questionMessageId: 1888,
+    startTime: 1719575614213,
+    currentQuestion: 'What is 2 + 3?',
+    currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+    counter: 0
+  }
+}
+UPDATETIMER
+GET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {},
+    timeout: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 14333,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 353,
+      [Symbol(triggerId)]: 0
+    },
+    timerInterval: Timeout {
+      _idleTimeout: 1000,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 15342,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 1000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 352,
+      [Symbol(triggerId)]: 0
+    },
+    questionMessageId: 1888,
+    startTime: 1719575614213,
+    currentQuestion: 'What is 2 + 3?',
+    currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+    counter: 0
+  }
+}
+Received callback query from chat 5757013475 with data: stop_round
+Stopping quiz for chat 5757013475
+GET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {},
+    timeout: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 14333,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 353,
+      [Symbol(triggerId)]: 0
+    },
+    timerInterval: Timeout {
+      _idleTimeout: 1000,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 16356,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 1000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 352,
+      [Symbol(triggerId)]: 0
+    },
+    questionMessageId: 1888,
+    startTime: 1719575614213,
+    currentQuestion: 'What is 2 + 3?',
+    currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+    counter: 0
+  }
+}
+[2024-06-28T11:53:36.578Z] [STOP] Quiz stopped manually in chat 5757013475
+GET USER STATE
+Map(1) {
+  5757013475 => {
+    currentQuestionNumber: 0,
+    activeUsers: Map(0) {},
+    answeredUsers: Set(0) {},
+    timeout: Timeout {
+      _idleTimeout: -1,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 14333,
+      _onTimeout: null,
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: true,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 353,
+      [Symbol(triggerId)]: 0
+    },
+    timerInterval: Timeout {
+      _idleTimeout: -1,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 16356,
+      _onTimeout: null,
+      _timerArgs: undefined,
+      _repeat: 1000,
+      _destroyed: true,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 352,
+      [Symbol(triggerId)]: 0
+    },
+    questionMessageId: 1888,
+    startTime: 1719575614213,
+    currentQuestion: 'What is 2 + 3?',
+    currentOptions: '{"inline_keyboard":[[{"text":"2","callback_data":"0"},{"text":"3","callback_data":"1"}],[{"text":"5","callback_data":"2"},{"text":"4","callback_data":"3"}]]}',
+    counter: 0
+  }
+}
+[2024-06-28T11:53:36.684Z] [END] Quiz ended in chat 5757013475. Quiz ended! Final scores:
+
+PS C:\Telegram Bots\telegram_quiz_bot>
