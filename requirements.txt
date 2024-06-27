@@ -1,0 +1,27 @@
+Use cases:
+1. When bot has already asked a question and waits for the answer - show timer in a separate section, changing it every 5 seconds.
+    you can use editMessageText method
+    put a bomb icon while the time is ticking and change it to explosion icon when the time is up
+2. /start should open a menu with options: 
+    1) start round
+        can only start round if there are no ongoing rounds
+    2) stop round
+        can only stop round if there is an ongoing round
+    3) select round
+        can only "select round" if there are no ongoing rounds
+        select round should open another menu:
+        1) Choose Round 1
+        2) Choose Round 2
+        3) Choose Round 3
+        4) Back
+        clicking on "Choose Round" button should set a round that will be used in "start round"
+        clicking no Back should open the previous menu
+3. Buttons with the answer options should be displayed one two rows making it 2x2 square, rather than 1x4 line as it is now 
+
+4. 1) Questions should be numbered
+    2) Result number/all
+    3) seconds vs second 
+    4) bomb -> clocks 
+    5) WHEN ALONE - Stop time after answer, just say correct/wrong. Edit answers in green/red
+5. Add a pause between announcing correct answer and asking the next question
+6. Add a pause between "time is up" and announcing correct answers

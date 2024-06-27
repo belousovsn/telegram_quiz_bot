@@ -1,31 +1,87 @@
-const { getQuestion, getCorrectAnswerText, getCorrectAnswerIndex, getTotalQuestions, resetQuiz } = require('../domain/quizService');
+const { getQuestion, getCorrectAnswerText, getCorrectAnswerIndex, getTotalQuestions, resetQuiz, loadRound } = require('../domain/quizService');
 const { recordAnswer, getUserAnswers, clearAnswers, getUserScore, resetUserScores, incrementUserScore } = require('../domain/userService');
 const { questionTimer } = require('../../../libraries/utils/config');
 const { log } = require('./utils/logger');
 
 const userStates = new Map();
+let currentRound = null;
+
+const selectRound = (roundNumber) => {
+    console.log(`Selecting round ${roundNumber}`);
+    try {
+        loadRound(roundNumber);
+        currentRound = roundNumber;
+        console.log(`Round ${roundNumber} successfully selected and loaded.`);
+        return true;
+    } catch (error) {
+        console.error(`Error selecting round ${roundNumber}:`, error.message);
+        return false;
+    }
+};
+
+const getCurrentRound = () => {
+    console.log(`Current round: ${currentRound}`);
+    return currentRound;
+};
 
 const startQuiz = (msg, bot) => {
     const chatId = msg.chat.id;
+    console.log(`Starting quiz for chat ${chatId}`);
+    
     if (userStates.has(chatId)) {
-      bot.sendMessage(
-        chatId,
-        "A quiz is already in progress. You can continue participating in the current quiz."
-      );
-      return;
+        console.log(`Quiz already in progress for chat ${chatId}`);
+        bot.sendMessage(
+            chatId,
+            "A quiz is already in progress. You can continue participating in the current quiz."
+        );
+        return;
     }
+    
+    if (!currentRound) {
+        console.log(`No round selected for chat ${chatId}`);
+        bot.sendMessage(
+            chatId,
+            "Please select a round first using the 'Select Round' option."
+        );
+        return;
+    }
+    
+    console.log(`Current round: ${currentRound}`);
     resetUserScores();
     resetQuiz();
+    
+    // Ensure the round is properly loaded
+    if (!selectRound(currentRound)) {
+        console.log(`Failed to load round ${currentRound} for chat ${chatId}`);
+        bot.sendMessage(chatId, "Error: Failed to load the selected round. Please try selecting the round again.");
+        return;
+    }
+    
     userStates.set(chatId, {
-      currentQuestionNumber: 0,
-      activeUsers: new Map(),
-      answeredUsers: new Set(),
+        currentQuestionNumber: 0,
+        activeUsers: new Map(),
+        answeredUsers: new Set(),
     });
+    
+    console.log(`User state set for chat ${chatId}`);
     log(`Quiz started in chat ${chatId}`, chatId, "START");
-    askNextQuestion(chatId, bot);
-  };
+    
+    const totalQuestions = getTotalQuestions();
+    console.log(`Total questions in the round: ${totalQuestions}`);
+    
+    if (totalQuestions > 0) {
+        console.log(`Starting first question for chat ${chatId}`);
+        askNextQuestion(chatId, bot);
+    } else {
+        console.log(`No questions available for chat ${chatId}`);
+        bot.sendMessage(chatId, "Error: No questions available for this round. Please try selecting a different round.");
+        endQuiz(chatId, bot);
+    }
+};
 
-  const stopQuiz = (msg, bot) => {
+// ... (rest of the file remains unchanged)
+
+const stopQuiz = (msg, bot) => {
     const chatId = msg.chat.id;
     if (!userStates.has(chatId)) {
       bot.sendMessage(chatId, "There is no active quiz to stop.");
@@ -69,9 +125,8 @@ const startQuiz = (msg, bot) => {
       endQuiz(chatId, bot);
     }
   };
-// ... (previous functions remain unchanged)
 
-const askQuestion = async (chatId, question, bot) => {
+  const askQuestion = async (chatId, question, bot) => {
     clearAnswers(chatId);
     const options = {
         reply_markup: {
@@ -128,7 +183,6 @@ const updateTimer = (chatId, bot, messageId) => {
     }
 };
 
-// ... (remaining functions stay the same)
 const evaluateAndProceed = async (chatId, question, bot) => {
     const userState = userStates.get(chatId);
     if (!userState) {
@@ -148,10 +202,12 @@ const evaluateAndProceed = async (chatId, question, bot) => {
     logQuestionResults(chatId, userState);
     askNextQuestion(chatId, bot);
   };
+  
   const revealAnswer = async (chatId, question, bot) => {
     const correctAnswer = getCorrectAnswerText(question);
     await bot.sendMessage(chatId, `The correct answer is: ${correctAnswer}`);
   };
+
   const handleAnswerSelection = (callback_query, bot) => {
     const chatId = callback_query.message.chat.id;
     const userId = callback_query.from.id;
@@ -177,6 +233,7 @@ const evaluateAndProceed = async (chatId, question, bot) => {
       });
     }
   };
+
   const evaluateAnswers = (chatId, question) => {
     const correctUsers = [];
     const correctAnswer = getCorrectAnswerIndex(question);
@@ -195,6 +252,7 @@ const evaluateAndProceed = async (chatId, question, bot) => {
     }
     return correctUsers;
   };
+
   const announceQuestionWinners = async (chatId, bot, correctUsers) => {
     let announceText =
       correctUsers.length > 0
@@ -202,6 +260,7 @@ const evaluateAndProceed = async (chatId, question, bot) => {
         : "No one answered correctly this time.";
     await bot.sendMessage(chatId, announceText);
   };
+
   const logQuestionResults = (chatId, userState) => {
     let questionResults = `Question ${userState.currentQuestionNumber} results:`;
     for (const [userId, userNickname] of userState.activeUsers) {
@@ -210,6 +269,7 @@ const evaluateAndProceed = async (chatId, question, bot) => {
     }
     log(questionResults, chatId, "QUESTION_RESULTS");
   };
+
   const endQuiz = async (chatId, bot) => {
     const userState = userStates.get(chatId);
     if (!userState) return;
@@ -227,5 +287,7 @@ module.exports = {
     startQuiz,
     stopQuiz,
     handleAnswerSelection,
-    askNextQuestion
+    askNextQuestion,
+    selectRound,
+    getCurrentRound
 };

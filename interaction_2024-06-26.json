@@ -1,0 +1,42 @@
+[
+  {
+    "question": "can you start writing history of our interactions to a file with the name \"interaction_date\" where date is current date. The file is stored telegram_quiz_bot folder. File format is anything that you prefer to be efficient. You should also store my question fully but put your answer as shor as possible",
+    "answer": "Created file, wrote initial content."
+  },
+  {
+    "question": "proceed",
+    "answer": "Attempted to read file contents."
+  },
+  {
+    "question": "I have renamed it and changed the date, you can find the file as it starts with \"interaction\"",
+    "answer": "Listed files, found correct file."
+  },
+  {
+    "question": "proceed",
+    "answer": "Read file contents, prepared to update."
+  },
+  {
+    "question": "recently you have added logging to my bot. I want you to update it so the logging is now written to a separate file in quiz->utils->logs folder. One file for each day (you can take current day by using datetime function or smth). Also include data that will help to distinguish different chats",
+    "answer": "Updated logger.js and quizController.js for new logging structure."
+  },
+  {
+    "question": "create the logs folder by yourself. also use current day in the log file name",
+    "answer": "Created logs folder and updated logger to use current date in filename."
+  },
+  {
+    "question": "wait, sorry, utils folder is in quiz->api folder. Proceed with the rest",
+    "answer": "Corrected folder structure and updated logger accordingly."
+  },
+  {
+    "question": "check all the console.log statements in quizcontroller, you have added them earlier. I just want them to log not only to terminal but to files",
+    "answer": "Updated quizController.js to use new logging function for all console.log statements."
+  },
+  {
+    "question": "I think you confused rounds with questions, I see that every question is called round in logs",
+    "answer": "Corrected terminology in quizController.js, changed 'round' to 'question' in logs."
+  },
+  {
+    "question": "now append our interaction to a file that start with \"interaction\" in the root folder. The way you store it should be as short as possible but at the same time enough for you to understand the context in the future",
+    "answer": "Prepared to append interaction summary to interaction file."
+  }
+]
