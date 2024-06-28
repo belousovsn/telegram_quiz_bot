@@ -85,6 +85,7 @@ const stopQuiz = (msg, bot) => {
 const handleAnswerSelection = (callback_query, bot) => {
     const chatId = callback_query.message.chat.id;
     const userId = callback_query.from.id;
+        //console.log(callback_query)
     const answer = callback_query.data;
     const userNickname =
         callback_query.from.username ||

@@ -2,7 +2,7 @@ const { questionTimer } = require('../../../libraries/utils/config');
 const { getUserState, setUserState } = require('./userStateManager');
 
 const updateTimer = (chatId, bot, messageId, totalQuestions) => {
-        console.log('UPDATETIMER')
+        //console.log('UPDATETIMER')
     const userState = getUserState(chatId);
     if (!userState) return;
 
