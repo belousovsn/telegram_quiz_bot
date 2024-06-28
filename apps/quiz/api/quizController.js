@@ -8,6 +8,10 @@ const { updateTimer } = require('./timerManager');
 const { evaluateAnswers, announceQuestionWinners, logQuestionResults } = require('./scoreManager');
 const { getUserState, setUserState, deleteUserState } = require('./userStateManager');
 
+const answerQueues = new Map();
+const MAX_QUEUE_SIZE = 1000; // Adjust as needed
+const QUEUE_PROCESSING_INTERVAL = 50; // milliseconds
+
 const startQuiz = (msg, bot) => {
     const chatId = msg.chat.id;
     console.log(`Starting quiz for chat ${chatId}`);
@@ -82,31 +86,64 @@ const stopQuiz = (msg, bot) => {
     bot.sendMessage(chatId, "The quiz has been stopped.");
 };
 
-const handleAnswerSelection = (callback_query, bot) => {
+const handleAnswerSelection = async (callback_query, bot) => {
     const chatId = callback_query.message.chat.id;
     const userId = callback_query.from.id;
-        //console.log(callback_query)
     const answer = callback_query.data;
-    const userNickname =
-        callback_query.from.username ||
-        callback_query.from.first_name ||
-        `User${userId}`;
-    const userState = getUserState(chatId);
-    if (userState && !userState.answeredUsers.has(userId)) {
-        recordAnswer(chatId, userId, answer);
-        userState.answeredUsers.add(userId);
-        userState.activeUsers.set(userId.toString(), userNickname);
-        bot.answerCallbackQuery(callback_query.id, { text: "Answer recorded" });
-        log(
-            `User ${userNickname} (${userId}) answered question ${userState.currentQuestionNumber}`,
-            chatId,
-            "ANSWER"
-        );
-    } else {
-        bot.answerCallbackQuery(callback_query.id, {
-            text: "You have already answered",
-        });
+    
+    // Immediately acknowledge the user's input
+    await bot.answerCallbackQuery(callback_query.id, { text: "Answer received" });
+
+    // Get or create the queue for this chat
+    if (!answerQueues.has(chatId)) {
+        answerQueues.set(chatId, []);
+        // Start processing for this chat's queue
+        setImmediate(() => processAnswerQueue(chatId, bot));
     }
+
+    const queue = answerQueues.get(chatId);
+
+    // Add to queue if not full
+    if (queue.length < MAX_QUEUE_SIZE) {
+        queue.push({ userId, answer, callback_query });
+    } else {
+        console.warn(`Answer queue for chat ${chatId} is full. Discarding new answer.`);
+    }
+};
+
+const processAnswerQueue = async (chatId, bot) => {
+    const queue = answerQueues.get(chatId);
+    if (!queue || queue.length === 0) {
+        answerQueues.delete(chatId);
+        return;
+    }
+
+    const { userId, answer, callback_query } = queue.shift();
+    
+    try {
+        const userState = getUserState(chatId);
+        if (userState && !userState.answeredUsers.has(userId)) {
+            const userNickname =
+                callback_query.from.username ||
+                callback_query.from.first_name ||
+                `User${userId}`;
+
+            log(
+                `User ${userNickname} (${userId}) answered question ${userState.currentQuestionNumber}`,
+                chatId,
+                "ANSWER"
+            );
+            
+            await recordAnswer(chatId, userId, answer);
+            userState.answeredUsers.add(userId);
+            userState.activeUsers.set(userId.toString(), userNickname);
+        }
+    } catch (error) {
+        console.error(`Error processing answer for chat ${chatId}, user ${userId}:`, error);
+    }
+
+    // Schedule next processing
+    setTimeout(() => processAnswerQueue(chatId, bot), QUEUE_PROCESSING_INTERVAL);
 };
 
 module.exports = {
