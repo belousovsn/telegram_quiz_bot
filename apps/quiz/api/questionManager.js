@@ -5,7 +5,6 @@ const { questionTimer } = require('../../../libraries/utils/config');
 const { updateTimer } = require('./timerManager');
 const { evaluateAnswers, announceQuestionWinners, logQuestionResults } = require('./scoreManager');
 const { getUserState, setUserState, deleteUserState } = require('./userStateManager');
-//const { endQuiz } = require('./quizController.js')
 
 const askNextQuestion = (chatId, bot) => {
     const userState = getUserState(chatId);
@@ -49,14 +48,15 @@ const askQuestion = async (chatId, question, bot) => {
             ]
         }
     };
-    const remainingTime = Math.floor(questionTimer / 1000);
-    const messageText = `Question ${getUserState(chatId).currentQuestionNumber}/${getTotalQuestions()}\n\n${question.question_text}\n\n\u23F0 Time remaining: ${remainingTime} second${remainingTime !== 1 ? 's' : ''}`;
-    const questionMessage = await bot.sendMessage(chatId, messageText, options);
-    
-    const timeout = setTimeout(() => evaluateAndProceed(chatId, question, bot), questionTimer);
-    const timerInterval = setInterval(() => updateTimer(chatId, bot, questionMessage.message_id), 5000);
-    
     const userState = getUserState(chatId);
+    const totalQuestions = getTotalQuestions();
+    const remainingTime = Math.floor(questionTimer / 1000);
+    const messageText = `Question ${userState.currentQuestionNumber}/${totalQuestions}\n\n${question.question_text}\n\n\u23F0 Time remaining: ${remainingTime} second${remainingTime !== 1 ? 's' : ''}`;
+    const questionMessage = await bot.sendMessage(chatId, messageText, options);
+    const timerInterval = setInterval(() => updateTimer(chatId, bot, questionMessage.message_id, totalQuestions), 1000);
+    const timeout = setTimeout(() => evaluateAndProceed(chatId, question, bot), questionTimer);
+    
+    
     setUserState(chatId, { 
         ...userState, 
         timeout, 
@@ -64,16 +64,23 @@ const askQuestion = async (chatId, question, bot) => {
         questionMessageId: questionMessage.message_id, 
         startTime: Date.now(),
         currentQuestion: question.question_text,
-        currentOptions: options.reply_markup
+        currentOptions: options.reply_markup,
+        counter: 0
     });
 };
 
 const evaluateAndProceed = async (chatId, question, bot) => {
+    console.log('evaluate called')
+
     const userState = getUserState(chatId);
     if (!userState) {
         log(`Quiz stopped unexpectedly in chat ${chatId}`, chatId, "ERROR");
         return;
     }
+
+    // Ensure the final update is performed
+    updateTimer(chatId, bot, userState.questionMessageId, getTotalQuestions());
+
     clearInterval(userState.timerInterval);
     const correctUsers = evaluateAnswers(chatId, question, userState);
     await revealAnswer(chatId, question, bot);
