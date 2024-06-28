@@ -7,9 +7,12 @@ const { evaluateAnswers, announceQuestionWinners, logQuestionResults } = require
 const { getUserState, setUserState, deleteUserState } = require('./userStateManager');
 
 const askNextQuestion = (chatId, bot) => {
+        console.log('NEXT Q START')
     const userState = getUserState(chatId);
     if (!userState) return;
     const { currentQuestionNumber } = userState;
+        console.log('initial q number in askNQ: ', currentQuestionNumber)
+        console.log('userState: ', userState)
     if (currentQuestionNumber >= getTotalQuestions()) {
         endQuiz(chatId, bot);
         return;
@@ -27,13 +30,17 @@ const askNextQuestion = (chatId, bot) => {
             currentQuestionNumber: currentQuestionNumber + 1,
             answeredUsers: new Set(),
         });
+        console.log('currentQnumber value', currentQuestionNumber)
+        console.log('question number', getUserState.currentQuestionNumber)
     } else {
         bot.sendMessage(chatId, "No more questions available");
         endQuiz(chatId, bot);
     }
+    console.log('NEXT Q END')
 };
 
 const askQuestion = async (chatId, question, bot) => {
+        console.log('ASK QUESTION START')
     const options = {
         reply_markup: {
             inline_keyboard: [
@@ -48,15 +55,17 @@ const askQuestion = async (chatId, question, bot) => {
             ]
         }
     };
-    const userState = getUserState(chatId);
+    let userState = getUserState(chatId);
     const totalQuestions = getTotalQuestions();
     const remainingTime = Math.floor(questionTimer / 1000);
-    const messageText = `Question ${userState.currentQuestionNumber}/${totalQuestions}\n\n${question.question_text}\n\n\u23F0 Time remaining: ${remainingTime} second${remainingTime !== 1 ? 's' : ''}`;
+    const messageText = `Question ${userState.currentQuestionNumber + 1}/${totalQuestions}\n\n${question.question_text}\n\n\u23F0 Time remaining: ${remainingTime} second${remainingTime !== 1 ? 's' : ''}`;
     const questionMessage = await bot.sendMessage(chatId, messageText, options);
     const timerInterval = setInterval(() => updateTimer(chatId, bot, questionMessage.message_id, totalQuestions), 1000);
     const timeout = setTimeout(() => evaluateAndProceed(chatId, question, bot), questionTimer);
     
-    
+        console.log('q number in askQuestion', getUserState.currentQuestionNumber)
+    //update userState before setting
+    userState = getUserState(chatId);
     setUserState(chatId, { 
         ...userState, 
         timeout, 
@@ -67,10 +76,12 @@ const askQuestion = async (chatId, question, bot) => {
         currentOptions: options.reply_markup,
         counter: 0
     });
+        console.log('ASK QUESTION END')
+        console.log(userState)
 };
 
 const evaluateAndProceed = async (chatId, question, bot) => {
-    console.log('evaluate called')
+    console.log('EVALUATE START')
 
     const userState = getUserState(chatId);
     if (!userState) {
@@ -93,10 +104,12 @@ const evaluateAndProceed = async (chatId, question, bot) => {
     logQuestionResults(chatId, userState);
     
     // Add a pause before asking the next question
+    console.log('EVALUATE END')
     setTimeout(() => askNextQuestion(chatId, bot), 3000);
 };
 
 const revealAnswer = async (chatId, question, bot) => {
+        console.log('REVEAL START')
     const correctAnswer = getCorrectAnswerText(question);
     await bot.sendMessage(chatId, `Time's up! The correct answer is: ${correctAnswer}`);
     
@@ -120,6 +133,7 @@ const revealAnswer = async (chatId, question, bot) => {
     };
     
     await bot.editMessageReplyMarkup(options.reply_markup, options);
+    console.log('REVEAL END')
 };
 
 const endQuiz = async (chatId, bot) => {
