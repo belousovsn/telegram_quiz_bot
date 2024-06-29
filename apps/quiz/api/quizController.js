@@ -86,28 +86,43 @@ const stopQuiz = (msg, bot) => {
     bot.sendMessage(chatId, "The quiz has been stopped.");
 };
 
-const handleAnswerSelection = async (callback_query, bot) => {
-    const chatId = callback_query.message.chat.id;
-    const userId = callback_query.from.id;
-    const answer = callback_query.data;
+const handleAnswerSelection = async (callbackQuery, bot) => {
+    console.log('handleAnswerSelection called with callbackQuery:', JSON.stringify(callbackQuery, null, 2));
     
-    // Immediately acknowledge the user's input
-    await bot.answerCallbackQuery(callback_query.id, { text: "Answer received" });
+    try {
+        if (!callbackQuery || typeof callbackQuery !== 'object') {
+            throw new Error('Invalid callback query object');
+        }
+        
+        const chatId = callbackQuery.message.chat.id;
+        const userId = callbackQuery.from.id;
+        const answer = callbackQuery.data;
+        
+        console.log(`Processing answer for chatId: ${chatId}, userId: ${userId}, answer: ${answer}`);
+        
+        // Acknowledge the callback query
+        await bot.answerCallbackQuery(callbackQuery.id);
+        
+        // Get or create the queue for this chat
+        if (!answerQueues.has(chatId)) {
+            answerQueues.set(chatId, []);
+            // Start processing for this chat's queue
+            setImmediate(() => processAnswerQueue(chatId, bot));
+        }
 
-    // Get or create the queue for this chat
-    if (!answerQueues.has(chatId)) {
-        answerQueues.set(chatId, []);
-        // Start processing for this chat's queue
-        setImmediate(() => processAnswerQueue(chatId, bot));
-    }
+        const queue = answerQueues.get(chatId);
 
-    const queue = answerQueues.get(chatId);
-
-    // Add to queue if not full
-    if (queue.length < MAX_QUEUE_SIZE) {
-        queue.push({ userId, answer, callback_query });
-    } else {
-        console.warn(`Answer queue for chat ${chatId} is full. Discarding new answer.`);
+        // Add to queue if not full
+        if (queue.length < MAX_QUEUE_SIZE) {
+            queue.push({ userId, answer, callbackQuery });
+        } else {
+            console.warn(`Answer queue for chat ${chatId} is full. Discarding new answer.`);
+        }
+    } catch (error) {
+        console.error('Error in handleAnswerSelection:', error);
+        if (callbackQuery && callbackQuery.message) {
+            bot.sendMessage(callbackQuery.message.chat.id, "Sorry, there was an error processing your answer. Please try again.");
+        }
     }
 };
 
@@ -118,14 +133,14 @@ const processAnswerQueue = async (chatId, bot) => {
         return;
     }
 
-    const { userId, answer, callback_query } = queue.shift();
+    const { userId, answer, callbackQuery } = queue.shift();
     
     try {
         const userState = getUserState(chatId);
         if (userState && !userState.answeredUsers.has(userId)) {
             const userNickname =
-                callback_query.from.username ||
-                callback_query.from.first_name ||
+                callbackQuery.from.username ||
+                callbackQuery.from.first_name ||
                 `User${userId}`;
 
             log(
@@ -137,6 +152,11 @@ const processAnswerQueue = async (chatId, bot) => {
             await recordAnswer(chatId, userId, answer);
             userState.answeredUsers.add(userId);
             userState.activeUsers.set(userId.toString(), userNickname);
+
+            // Provide feedback to the user
+            bot.sendMessage(chatId, `Answer received from ${userNickname}`, {
+                reply_to_message_id: callbackQuery.message.message_id
+            });
         }
     } catch (error) {
         console.error(`Error processing answer for chat ${chatId}, user ${userId}:`, error);

@@ -3,94 +3,101 @@ const { startQuiz, stopQuiz, handleAnswerSelection, selectRound, getCurrentRound
 const { botToken } = require('./libraries/utils/config');
 
 const token = botToken;
-const bot = new TelegramBot(token, {polling: true});
+const bot = new TelegramBot(token, { polling: true });
+
+// Main menu keyboard
+const mainMenuKeyboard = {
+    reply_markup: {
+        keyboard: [
+            ['Start Round'],
+            ['Stop Round'],
+            ['Select Round']
+        ],
+        resize_keyboard: true,
+        one_time_keyboard: false
+    }
+};
+
+// Round selection keyboard
+const roundSelectionKeyboard = {
+    reply_markup: {
+        keyboard: [
+            ['Round 1', 'Round 2', 'Round 3'],
+            ['Back to Main Menu']
+        ],
+        resize_keyboard: true,
+        one_time_keyboard: false
+    }
+};
 
 // Handle the /start command
 bot.onText(/\/start/, (msg) => {
     const chatId = msg.chat.id;
     console.log(`Received /start command from chat ${chatId}`);
-    showMainMenu(chatId);
+    bot.sendMessage(chatId, 'Welcome to the Quiz Bot! Please use the keyboard to navigate.', mainMenuKeyboard);
 });
 
-// Handle callback queries
-bot.on('callback_query', (callbackQuery) => {
-    const chatId = callbackQuery.message.chat.id;
-    const data = callbackQuery.data;
-    console.log(`Received callback query from chat ${chatId} with data: ${data}`);
+// Handle messages
+bot.on('message', async (msg) => {
+    const chatId = msg.chat.id;
+    const messageText = msg.text;
 
-    switch(data) {
-        case 'start_round':
+    switch(messageText) {
+        case 'Start Round':
             const currentRound = getCurrentRound();
             console.log(`Current round for chat ${chatId}: ${currentRound}`);
             if (!currentRound) {
                 console.log(`No round selected for chat ${chatId}`);
-                bot.sendMessage(chatId, "Please select a round first using the 'Select Round' option.");
+                bot.sendMessage(chatId, "Please select a round first using the 'Select Round' option.", mainMenuKeyboard);
             } else {
                 console.log(`Starting quiz for chat ${chatId} with round ${currentRound}`);
-                startQuiz(callbackQuery.message, bot);
+                startQuiz(msg, bot);
             }
             break;
-        case 'stop_round':
+        case 'Stop Round':
             console.log(`Stopping quiz for chat ${chatId}`);
-            stopQuiz(callbackQuery.message, bot);
+            stopQuiz(msg, bot);
             break;
-        case 'select_round':
+        case 'Select Round':
             console.log(`Showing round selection menu for chat ${chatId}`);
-            showRoundSelectionMenu(chatId);
+            bot.sendMessage(chatId, 'Select a round:', roundSelectionKeyboard);
             break;
-        case 'round_1':
-        case 'round_2':
-        case 'round_3':
-            const roundNumber = parseInt(data.split('_')[1]);
+        case 'Round 1':
+        case 'Round 2':
+        case 'Round 3':
+            const roundNumber = parseInt(messageText.split(' ')[1]);
             console.log(`Selecting round ${roundNumber} for chat ${chatId}`);
             if (selectRound(roundNumber)) {
-                bot.sendMessage(chatId, `Round ${roundNumber} selected successfully.`);
+                bot.sendMessage(chatId, `Round ${roundNumber} selected successfully. You can now start the round.`, mainMenuKeyboard);
             } else {
-                bot.sendMessage(chatId, `Failed to select round ${roundNumber}. Please try again.`);
+                bot.sendMessage(chatId, `Failed to select round ${roundNumber}. Please try again.`, roundSelectionKeyboard);
             }
-            showMainMenu(chatId);
             break;
-        case 'back_to_main':
-            console.log(`Returning to main menu for chat ${chatId}`);
-            showMainMenu(chatId);
+        case 'Back to Main Menu':
+            bot.sendMessage(chatId, 'Returning to main menu.', mainMenuKeyboard);
             break;
         default:
-            console.log(`Handling answer selection for chat ${chatId}`);
-            handleAnswerSelection(callbackQuery, bot);
+            // Handle quiz answers here
+            console.log(`Handling potential quiz answer for chat ${chatId}`);
+            await handleAnswerSelection({ message: msg, data: messageText }, bot);
     }
-
-    // Answer the callback query
-    bot.answerCallbackQuery(callbackQuery.id);
 });
 
-function showMainMenu(chatId) {
-    console.log(`Showing main menu for chat ${chatId}`);
-    const options = {
-        reply_markup: {
-            inline_keyboard: [
-                [{ text: 'Start Round', callback_data: 'start_round' }],
-                [{ text: 'Stop Round', callback_data: 'stop_round' }],
-                [{ text: 'Select Round', callback_data: 'select_round' }]
-            ]
-        }
-    };
-    bot.sendMessage(chatId, 'Welcome to the Quiz Bot! Please select an option:', options);
-}
+// Handle callback queries
+bot.on('callback_query', async (callbackQuery) => {
+    const chatId = callbackQuery.message.chat.id;
+    console.log(`Received callback query from chat ${chatId}`);
 
-function showRoundSelectionMenu(chatId) {
-    console.log(`Showing round selection menu for chat ${chatId}`);
-    const options = {
-        reply_markup: {
-            inline_keyboard: [
-                [{ text: 'Choose Round 1', callback_data: 'round_1' }],
-                [{ text: 'Choose Round 2', callback_data: 'round_2' }],
-                [{ text: 'Choose Round 3', callback_data: 'round_3' }],
-                [{ text: 'Back', callback_data: 'back_to_main' }]
-            ]
-        }
-    };
-    bot.sendMessage(chatId, 'Select a round:', options);
-}
+    try {
+        await handleAnswerSelection(callbackQuery, bot);
+        // Answer the callback query to prevent the "query is too old" error
+        await bot.answerCallbackQuery(callbackQuery.id);
+    } catch (error) {
+        console.error('Error handling callback query:', error);
+        // Still try to answer the callback query even if there was an error
+        await bot.answerCallbackQuery(callbackQuery.id, { text: "An error occurred" });
+    }
+});
 
 // Error handling
 bot.on('polling_error', (error) => {
@@ -98,5 +105,4 @@ bot.on('polling_error', (error) => {
 });
 
 console.log('Bot is running...');
-
 module.exports = bot;
