@@ -1,8 +1,15 @@
 {
+  "name": "telegram-quiz-bot",
+  "version": "1.0.0",
+  "description": "A Telegram quiz bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
-    "node-telegram-bot-api": "^0.66.0"
+    "node-telegram-bot-api": "^0.61.0"
   },
   "devDependencies": {
-    "madge": "^7.0.0"
+    "jest": "^29.5.0"
   }
 }
