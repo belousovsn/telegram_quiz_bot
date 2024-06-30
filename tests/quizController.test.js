@@ -10,12 +10,12 @@ const {
 jest.mock('../apps/quiz/domain/quizService');
 jest.mock('../apps/quiz/domain/userService');
 jest.mock('../libraries/utils/config');
-jest.mock('./utils/logger');
-jest.mock('./roundManager');
-jest.mock('./questionManager');
-jest.mock('./timerManager');
-jest.mock('./scoreManager');
-jest.mock('./userStateManager');
+jest.mock('../apps/quiz/api/utils/logger');
+jest.mock('../apps/quiz/api/roundManager');
+jest.mock('../apps/quiz/api/questionManager');
+jest.mock('../apps/quiz/api/timerManager');
+jest.mock('../apps/quiz/api/scoreManager');
+jest.mock('../apps/quiz/api/userStateManager');
 
 describe('Quiz Controller', () => {
     let mockBot;
@@ -62,11 +62,11 @@ describe('Quiz Controller', () => {
 
     describe('startQuiz', () => {
         it('should start a new quiz when no quiz is in progress', () => {
-            const { getUserState, setUserState } = require('./userStateManager');
-            const { getCurrentRound, selectRound } = require('./roundManager');
+            const { getUserState, setUserState } = require('../apps/quiz/api/userStateManager');
+            const { getCurrentRound, selectRound } = require('../apps/quiz/api/roundManager');
             const { getTotalQuestions, resetQuiz } = require('../apps/quiz/domain/quizService');
             const { resetUserScores } = require('../apps/quiz/domain/userService');
-            const { askNextQuestion } = require('./questionManager');
+            const { askNextQuestion } = require('../apps/quiz/api/questionManager');
 
             getUserState.mockReturnValue(null);
             getCurrentRound.mockReturnValue('round1');
@@ -82,7 +82,7 @@ describe('Quiz Controller', () => {
         });
 
         it('should not start a new quiz when a quiz is already in progress', () => {
-            const { getUserState } = require('./userStateManager');
+            const { getUserState } = require('../apps/quiz/api/userStateManager');
             getUserState.mockReturnValue({ currentQuestionNumber: 1 });
 
             startQuiz(mockMsg, mockBot);
@@ -94,8 +94,8 @@ describe('Quiz Controller', () => {
         });
 
         it('should handle the case when no round is selected', () => {
-            const { getUserState } = require('./userStateManager');
-            const { getCurrentRound } = require('./roundManager');
+            const { getUserState } = require('../apps/quiz/api/userStateManager');
+            const { getCurrentRound } = require('../apps/quiz/api/roundManager');
 
             getUserState.mockReturnValue(null);
             getCurrentRound.mockReturnValue(null);
@@ -109,11 +109,11 @@ describe('Quiz Controller', () => {
         });
 
         it('should handle the case when there are no questions in the selected round', () => {
-            const { getUserState, setUserState } = require('./userStateManager');
-            const { getCurrentRound, selectRound } = require('./roundManager');
+            const { getUserState, setUserState } = require('../apps/quiz/api/userStateManager');
+            const { getCurrentRound, selectRound } = require('../apps/quiz/api/roundManager');
             const { getTotalQuestions, resetQuiz } = require('../apps/quiz/domain/quizService');
             const { resetUserScores } = require('../apps/quiz/domain/userService');
-            const { endQuiz } = require('./questionManager');
+            const { endQuiz } = require('../apps/quiz/api/questionManager');
 
             getUserState.mockReturnValue(null);
             getCurrentRound.mockReturnValue('round1');
@@ -135,8 +135,8 @@ describe('Quiz Controller', () => {
 
     describe('stopQuiz', () => {
         it('should stop an ongoing quiz', () => {
-            const { getUserState, deleteUserState } = require('./userStateManager');
-            const { endQuiz } = require('./questionManager');
+            const { getUserState, deleteUserState } = require('../apps/quiz/api/userStateManager');
+            const { endQuiz } = require('../apps/quiz/api/questionManager');
 
             getUserState.mockReturnValue({
                 timeout: setTimeout(() => {}, 1000),
@@ -153,7 +153,7 @@ describe('Quiz Controller', () => {
         });
 
         it('should handle the case when no quiz is in progress', () => {
-            const { getUserState } = require('./userStateManager');
+            const { getUserState } = require('../apps/quiz/api/userStateManager');
             getUserState.mockReturnValue(null);
 
             stopQuiz(mockMsg, mockBot);
@@ -167,7 +167,7 @@ describe('Quiz Controller', () => {
 
     describe('handleAnswerSelection', () => {
         it('should process a valid answer selection', async () => {
-            const { getUserState } = require('./userStateManager');
+            const { getUserState } = require('../apps/quiz/api/userStateManager');
             const { recordAnswer } = require('../apps/quiz/domain/userService');
 
             getUserState.mockReturnValue({ 
@@ -179,7 +179,7 @@ describe('Quiz Controller', () => {
             await handleAnswerSelection(mockCallbackQuery, mockBot);
 
             expect(mockBot.answerCallbackQuery).toHaveBeenCalledWith('callbackQueryId');
-            expect(recordAnswer).toHaveBeenCalledWith(123456, 789012, '2');
+            await expect(recordAnswer).toHaveBeenCalledWith(123456, 789012, '2');
             expect(mockBot.sendMessage).toHaveBeenCalledWith(
                 123456,
                 expect.stringContaining("Answer received from testuser"),
@@ -188,7 +188,7 @@ describe('Quiz Controller', () => {
         });
 
         it('should not process an answer if the user has already answered', async () => {
-            const { getUserState } = require('./userStateManager');
+            const { getUserState } = require('../apps/quiz/api/userStateManager');
             const { recordAnswer } = require('../apps/quiz/domain/userService');
 
             getUserState.mockReturnValue({ 
@@ -200,12 +200,12 @@ describe('Quiz Controller', () => {
             await handleAnswerSelection(mockCallbackQuery, mockBot);
 
             expect(mockBot.answerCallbackQuery).toHaveBeenCalledWith('callbackQueryId');
-            expect(recordAnswer).not.toHaveBeenCalled();
+            await expect(recordAnswer).not.toHaveBeenCalled();
             expect(mockBot.sendMessage).not.toHaveBeenCalled();
         });
 
         it('should handle errors gracefully', async () => {
-            const { getUserState } = require('./userStateManager');
+            const { getUserState } = require('../apps/quiz/api/userStateManager');
             getUserState.mockImplementation(() => {
                 throw new Error('Test error');
             });
@@ -222,7 +222,7 @@ describe('Quiz Controller', () => {
 
     describe('selectRound', () => {
         it('should select a valid round', () => {
-            const { selectRound: selectRoundManager } = require('./roundManager');
+            const { selectRound: selectRoundManager } = require('../apps/quiz/api/roundManager');
             selectRoundManager.mockReturnValue(true);
 
             const result = selectRound('round1');
@@ -232,7 +232,7 @@ describe('Quiz Controller', () => {
         });
 
         it('should handle an invalid round selection', () => {
-            const { selectRound: selectRoundManager } = require('./roundManager');
+            const { selectRound: selectRoundManager } = require('../apps/quiz/api/roundManager');
             selectRoundManager.mockReturnValue(false);
 
             const result = selectRound('invalidRound');
@@ -244,7 +244,7 @@ describe('Quiz Controller', () => {
 
     describe('getCurrentRound', () => {
         it('should return the current round', () => {
-            const { getCurrentRound: getCurrentRoundManager } = require('./roundManager');
+            const { getCurrentRound: getCurrentRoundManager } = require('../apps/quiz/api/roundManager');
             getCurrentRoundManager.mockReturnValue('round1');
 
             const result = getCurrentRound();
@@ -254,7 +254,7 @@ describe('Quiz Controller', () => {
         });
 
         it('should handle the case when no round is selected', () => {
-            const { getCurrentRound: getCurrentRoundManager } = require('./roundManager');
+            const { getCurrentRound: getCurrentRoundManager } = require('../apps/quiz/api/roundManager');
             getCurrentRoundManager.mockReturnValue(null);
 
             const result = getCurrentRound();

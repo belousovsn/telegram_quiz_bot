@@ -10,6 +10,6 @@
     "node-telegram-bot-api": "^0.61.0"
   },
   "devDependencies": {
-    "jest": "^29.5.0"
+    "jest": "^29.7.0"
   }
 }

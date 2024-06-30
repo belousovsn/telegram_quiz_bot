@@ -149,7 +149,7 @@ const processAnswerQueue = async (chatId, bot) => {
                 "ANSWER"
             );
             
-            await recordAnswer(chatId, userId, answer);
+            recordAnswer(chatId, userId, answer);
             userState.answeredUsers.add(userId);
             userState.activeUsers.set(userId.toString(), userNickname);
 

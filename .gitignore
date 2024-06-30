@@ -4,3 +4,4 @@ main.py
 apps/quiz/api/utils/logs
 misc/
 troubleshoot.txt
+node_modules/
