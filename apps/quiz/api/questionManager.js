@@ -7,12 +7,12 @@ const { evaluateAnswers, announceQuestionWinners, logQuestionResults } = require
 const { getUserState, setUserState, deleteUserState } = require('./userStateManager');
 
 const askNextQuestion = (chatId, bot) => {
-        //console.log('NEXT Q START')
+        console.log('NEXT Q START')
     const userState = getUserState(chatId);
     if (!userState) return;
     const { currentQuestionNumber } = userState;
         //console.log('initial q number in askNQ: ', currentQuestionNumber)
-        //console.log('userState: ', userState)
+        console.log('userState: ', userState)
     if (currentQuestionNumber >= getTotalQuestions()) {
         endQuiz(chatId, bot);
         return;

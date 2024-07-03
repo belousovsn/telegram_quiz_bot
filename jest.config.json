@@ -1,0 +1,11 @@
+{
+    "reporters": [
+      "default",
+      ["jest-html-reporter", {
+        "pageTitle": "Test Report",
+        "includeConsoleLog": true,
+        "includeFailureMsg": true,
+        "outputPath": "./tests/test-reporter.html"
+      }]
+    ]
+  }

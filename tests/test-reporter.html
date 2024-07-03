@@ -1,0 +1,756 @@
+<html><head><meta charset="utf-8"/><title>Test Report</title><style type="text/css">html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+body {
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+}
+.jesthtml-content {
+  margin: 0 auto;
+  max-width: 70rem;
+}
+header {
+  display: flex;
+  align-items: center;
+}
+#title {
+  margin: 0;
+  flex-grow: 1;
+}
+#logo {
+  height: 4rem;
+}
+#timestamp {
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+/** SUMMARY */
+#summary {
+  color: #333;
+  margin: 2rem 0;
+  display: flex;
+  font-family: monospace;
+  font-size: 1rem;
+}
+#summary > div {
+  margin-right: 2rem;
+  background: #eee;
+  padding: 1rem;
+  min-width: 15rem;
+}
+#summary > div:last-child {
+  margin-right: 0;
+}
+@media only screen and (max-width: 720px) {
+  #summary {
+    flex-direction: column;
+  }
+  #summary > div {
+    margin-right: 0;
+    margin-top: 2rem;
+  }
+  #summary > div:first-child {
+    margin-top: 0;
+  }
+}
+
+.summary-total {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.summary-passed {
+  color: #4f8a10;
+  border-left: 0.4rem solid #4f8a10;
+  padding-left: 0.5rem;
+}
+.summary-failed,
+.summary-obsolete-snapshots {
+  color: #d8000c;
+  border-left: 0.4rem solid #d8000c;
+  padding-left: 0.5rem;
+}
+.summary-pending {
+  color: #9f6000;
+  border-left: 0.4rem solid #9f6000;
+  padding-left: 0.5rem;
+}
+.summary-empty {
+  color: #999;
+  border-left: 0.4rem solid #999;
+}
+
+.test-result {
+  padding: 1rem;
+  margin-bottom: 0.25rem;
+}
+.test-result:last-child {
+  border: 0;
+}
+.test-result.passed {
+  background-color: #dff2bf;
+  color: #4f8a10;
+}
+.test-result.failed {
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.test-result.pending {
+  background-color: #ffdf61;
+  color: #9f6000;
+}
+
+.test-info {
+  display: flex;
+  justify-content: space-between;
+}
+.test-suitename {
+  width: 20%;
+  text-align: left;
+  font-weight: bold;
+  word-break: break-word;
+}
+.test-title {
+  width: 40%;
+  text-align: left;
+  font-style: italic;
+}
+.test-status {
+  width: 20%;
+  text-align: right;
+}
+.test-duration {
+  width: 10%;
+  text-align: right;
+  font-size: 0.75rem;
+}
+
+.failureMessages {
+  padding: 0 1rem;
+  margin-top: 1rem;
+  border-top: 1px dashed #d8000c;
+}
+.failureMessages.suiteFailure {
+  border-top: none;
+}
+.failureMsg {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.suite-container {
+  margin-bottom: 2rem;
+}
+.suite-container > input[type="checkbox"] {
+  position: absolute;
+  left: -100vw;
+}
+.suite-container label {
+  display: block;
+}
+.suite-container .suite-tests {
+  overflow-y: hidden;
+  height: 0;
+}
+.suite-container > input[type="checkbox"]:checked ~ .suite-tests {
+  height: auto;
+  overflow: visible;
+}
+.suite-info {
+  padding: 1rem;
+  background-color: #eee;
+  color: #777;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.suite-info:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+.suite-info .suite-path {
+  word-break: break-all;
+  flex-grow: 1;
+  font-family: monospace;
+  font-size: 1rem;
+}
+.suite-info .suite-time {
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.3rem;
+  font-size: 0.75rem;
+}
+.suite-info .suite-time.warn {
+  background-color: #d8000c;
+  color: #fff;
+}
+.suite-info:before {
+  content: "\2303";
+  display: inline-block;
+  margin-right: 0.5rem;
+  transform: rotate(0deg);
+}
+.suite-container > input[type="checkbox"]:checked ~ label .suite-info:before {
+  transform: rotate(180deg);
+}
+
+/* CONSOLE LOGS */
+.suite-consolelog {
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  background-color: #efefef;
+}
+.suite-consolelog-header {
+  font-weight: bold;
+}
+.suite-consolelog-item {
+  padding: 0.5rem;
+}
+.suite-consolelog-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-consolelog-item-origin {
+  color: #777;
+  font-weight: bold;
+}
+.suite-consolelog-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+
+/* OBSOLETE SNAPSHOTS */
+.suite-obsolete-snapshots {
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.suite-obsolete-snapshots-header {
+  font-weight: bold;
+}
+.suite-obsolete-snapshots-item {
+  padding: 0.5rem;
+}
+.suite-obsolete-snapshots-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-obsolete-snapshots-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+</style></head><body><div class="jesthtml-content"><header><h1 id="title">Test Report</h1></header><div id="metadata-container"><div id="timestamp">Started: 2024-07-04 00:48:29</div><div id="summary"><div id="suite-summary"><div class="summary-total">Suites (2)</div><div class="summary-passed  summary-empty">0 passed</div><div class="summary-failed ">2 failed</div><div class="summary-pending  summary-empty">0 pending</div></div><div id="test-summary"><div class="summary-total">Tests (14)</div><div class="summary-passed ">10 passed</div><div class="summary-failed ">4 failed</div><div class="summary-pending  summary-empty">0 pending</div></div></div></div><div id="suite-1" class="suite-container"><input id="collapsible-0" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-0"><div class="suite-info"><div class="suite-path">C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js</div><div class="suite-time">0.742s</div></div></label><div class="suite-tests"><div class="test-result failed"><div class="test-info"><div class="test-suitename">Quiz Controller &gt; startQuiz</div><div class="test-title">should start a new quiz when no quiz is in progress</div><div class="test-status">failed</div><div class="test-duration">0.015s</div></div><div class="failureMessages"> <pre class="failureMsg">Error: expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+- Expected
++ Received
+
+  123456,
+  {"answerCallbackQuery": [Function mockConstructor], "sendMessage": [Function mockConstructor]},
+- Any&lt;Object&gt;,
+
+Number of calls: 1
+    at Object.toHaveBeenCalledWith (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:81:37)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Quiz Controller &gt; startQuiz</div><div class="test-title">should not start a new quiz when a quiz is already in progress</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Quiz Controller &gt; startQuiz</div><div class="test-title">should handle the case when no round is selected</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Quiz Controller &gt; startQuiz</div><div class="test-title">should handle the case when there are no questions in the selected round</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Quiz Controller &gt; stopQuiz</div><div class="test-title">should stop an ongoing quiz</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Quiz Controller &gt; stopQuiz</div><div class="test-title">should handle the case when no quiz is in progress</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result failed"><div class="test-info"><div class="test-suitename">Quiz Controller &gt; handleAnswerSelection</div><div class="test-title">should process a valid answer selection</div><div class="test-status">failed</div><div class="test-duration">0.003s</div></div><div class="failureMessages"> <pre class="failureMsg">Error: expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+Expected: 123456, 789012, "2"
+
+Number of calls: 0
+    at Object.toHaveBeenCalledWith (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:182:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)</pre></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Quiz Controller &gt; handleAnswerSelection</div><div class="test-title">should not process an answer if the user has already answered</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result failed"><div class="test-info"><div class="test-suitename">Quiz Controller &gt; handleAnswerSelection</div><div class="test-title">should handle errors gracefully</div><div class="test-status">failed</div><div class="test-duration">0.002s</div></div><div class="failureMessages"> <pre class="failureMsg">Error: expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+Expected: 123456, StringContaining "Sorry, there was an error processing your answer"
+
+Number of calls: 0
+    at Object.toHaveBeenCalledWith (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:216:41)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)</pre></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Quiz Controller &gt; selectRound</div><div class="test-title">should select a valid round</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Quiz Controller &gt; selectRound</div><div class="test-title">should handle an invalid round selection</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Quiz Controller &gt; getCurrentRound</div><div class="test-title">should return the current round</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Quiz Controller &gt; getCurrentRound</div><div class="test-title">should handle the case when no round is selected</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div><div class="suite-consolelog"><div class="suite-consolelog-header">Console Log</div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:17:13)
+    at Object.startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:76:13)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Starting quiz for chat 123456</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:38:17)
+    at Object.startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:76:13)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Current round: round1</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:55:17)
+    at Object.startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:76:13)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">User state set for chat 123456</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:59:17)
+    at Object.startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:76:13)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Total questions in the round: 5</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:62:21)
+    at Object.startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:76:13)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Starting first question for chat 123456</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:17:13)
+    at Object.startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:88:13)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Starting quiz for chat 123456</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:20:21)
+    at Object.startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:88:13)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Quiz already in progress for chat 123456</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:17:13)
+    at Object.startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:103:13)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Starting quiz for chat 123456</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:30:21)
+    at Object.startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:103:13)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">No round selected for chat 123456</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:17:13)
+    at Object.startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:123:13)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Starting quiz for chat 123456</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:38:17)
+    at Object.startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:123:13)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Current round: round1</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:55:17)
+    at Object.startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:123:13)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">User state set for chat 123456</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:59:17)
+    at Object.startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:123:13)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Total questions in the round: 0</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:65:21)
+    at Object.startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:123:13)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">No questions available for chat 123456</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:95:13)
+    at Object.handleAnswerSelection (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:179:19)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">handleAnswerSelection called with callbackQuery: {
+  "id": "callbackQueryId",
+  "from": {
+    "id": 789012,
+    "username": "testuser"
+  },
+  "message": {
+    "chat": {
+      "id": 123456
+    },
+    "message_id": 98765
+  },
+  "data": "2"
+}</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:106:17)
+    at Object.handleAnswerSelection (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:179:19)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Processing answer for chatId: 123456, userId: 789012, answer: 2</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:95:13)
+    at Object.handleAnswerSelection (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:200:19)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">handleAnswerSelection called with callbackQuery: {
+  "id": "callbackQueryId",
+  "from": {
+    "id": 789012,
+    "username": "testuser"
+  },
+  "message": {
+    "chat": {
+      "id": 123456
+    },
+    "message_id": 98765
+  },
+  "data": "2"
+}</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:106:17)
+    at Object.handleAnswerSelection (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:200:19)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Processing answer for chatId: 123456, userId: 789012, answer: 2</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:95:13)
+    at Object.handleAnswerSelection (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:213:19)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">handleAnswerSelection called with callbackQuery: {
+  "id": "callbackQueryId",
+  "from": {
+    "id": 789012,
+    "username": "testuser"
+  },
+  "message": {
+    "chat": {
+      "id": 123456
+    },
+    "message_id": 98765
+  },
+  "data": "2"
+}</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:106:17)
+    at Object.handleAnswerSelection (C:\Telegram Bots\telegram_quiz_bot\tests\quizController.test.js:213:19)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Processing answer for chatId: 123456, userId: 789012, answer: 2</pre></div></div></div><div id="suite-2" class="suite-container"><input id="collapsible-1" type="checkbox" class="toggle" checked="checked"/><label for="collapsible-1"><div class="suite-info"><div class="suite-path">C:\Telegram Bots\telegram_quiz_bot\tests\integration.test.js</div><div class="suite-time">1.095s</div></div></label><div class="suite-tests"><div class="test-result failed"><div class="test-info"><div class="test-suitename">Quiz Bot Integration Tests</div><div class="test-title">Multiple users in multiple channels with message content verification</div><div class="test-status">failed</div><div class="test-duration">0.017s</div></div><div class="failureMessages"> <pre class="failureMsg">Error: expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+Expected: 100, StringContaining "Question 1/2", Any&lt;Object&gt;
+
+Number of calls: 0
+    at toHaveBeenCalledWith (C:\Telegram Bots\telegram_quiz_bot\tests\integration.test.js:75:37)
+    at Object.simulateQuizFlow (C:\Telegram Bots\telegram_quiz_bot\tests\integration.test.js:155:19)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre></div></div></div><div class="suite-consolelog"><div class="suite-consolelog-header">Console Log</div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:17:13)
+    at startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\integration.test.js:59:9)
+    at Object.simulateQuizFlow (C:\Telegram Bots\telegram_quiz_bot\tests\integration.test.js:155:19)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Starting quiz for chat 100</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:38:17)
+    at startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\integration.test.js:59:9)
+    at Object.simulateQuizFlow (C:\Telegram Bots\telegram_quiz_bot\tests\integration.test.js:155:19)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Current round: round1</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:55:17)
+    at startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\integration.test.js:59:9)
+    at Object.simulateQuizFlow (C:\Telegram Bots\telegram_quiz_bot\tests\integration.test.js:155:19)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">User state set for chat 100</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:59:17)
+    at startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\integration.test.js:59:9)
+    at Object.simulateQuizFlow (C:\Telegram Bots\telegram_quiz_bot\tests\integration.test.js:155:19)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Total questions in the round: 2</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Telegram Bots\telegram_quiz_bot\apps\quiz\api\quizController.js:62:21)
+    at startQuiz (C:\Telegram Bots\telegram_quiz_bot\tests\integration.test.js:59:9)
+    at Object.simulateQuizFlow (C:\Telegram Bots\telegram_quiz_bot\tests\integration.test.js:155:19)
+    at Promise.then.completed (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Telegram Bots\telegram_quiz_bot\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">Starting first question for chat 100</pre></div></div></div></div></body></html>
